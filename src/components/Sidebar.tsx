@@ -91,8 +91,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ ddiInfo }) => {
             {ddiInfo.ddi && (
                 <div>
                     <h3>DDI Information</h3>
-                    <p>Drug A: {ddiInfo.drugA.name}</p>
-                    <p>Drug B: {ddiInfo.drugB?.name || 'N/A'}</p>
 
                     {/* 输出所有的 DDI 类型和描述 */}
                     {Object.keys(ddiInfo.ddi).map((ddiType, index) => (
