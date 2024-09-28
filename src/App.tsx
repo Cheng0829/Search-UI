@@ -1,26 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
+// src/App.tsx
+import React, { useState } from 'react';
+import { SearchBar } from './components/SearchBar';
+import { Sidebar } from './components/Sidebar';
+import { SearchResult, DDIResult } from './types';
+import { cjkSearch } from './service/dataService';
 import './App.css';
 
-function App() {
+const App: React.FC = () => {
+  const [searchResult, setSearchResult] = useState<SearchResult | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleSearch = async (drugA: string, drugB: string) => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      if (!drugA) {
+        throw new Error('请输入药物A！');
+      }
+      if(drugA === drugB){
+        throw new Error('请输入两个不同的药物！');
+      }
+
+      const result = await cjkSearch(drugA, drugB);
+      // console.log(result);
+
+      if(result===null){
+        throw new Error('未找到相关药物！');
+      }
+      setSearchResult(result);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An unknown error occurred');
+      setSearchResult(null);
+    } finally {
+      setIsLoading(false);
+    }
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="app-container">
+        <SearchBar onSearch={handleSearch} />
+        {isLoading && <p>Loading...</p>}
+        {error && <p className="error">{error}</p>}
+        {searchResult && (
+            <div className="content-container">
+              <Sidebar ddiInfo={searchResult} />
+            </div>
+        )}
+      </div>
   );
-}
+};
 
 export default App;
