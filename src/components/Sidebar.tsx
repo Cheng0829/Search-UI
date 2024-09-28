@@ -15,11 +15,18 @@ export const Sidebar: React.FC<SidebarProps> = ({ ddiInfo }) => {
     if (!ddiInfo) return null;
 
     const hasDrugBKey = 'drugB' in ddiInfo;
-    console.log('hasDrugBKey:', hasDrugBKey);
-    console.log('ddiInfo.drugB:', ddiInfo.drugB);
-    console.log('!ddiInfo.drugB:', !ddiInfo.drugB);
 
-    if(!ddiInfo.drugA || !ddiInfo.drugB)
+    // 正常的只查单个药物的情况：药物A不存在，药物B为空
+    if(!ddiInfo.drugA && !hasDrugBKey)
+        return (
+            <div className="error-Drug-null">
+                <div>
+                    <p>药物A不存在！</p>
+                </div>
+            </div>
+        );
+
+    if(!ddiInfo.drugA || (!ddiInfo.drugB && hasDrugBKey))
         return (
             <div className="error-Drug-null">
                 {!ddiInfo.drugA && (
@@ -27,9 +34,31 @@ export const Sidebar: React.FC<SidebarProps> = ({ ddiInfo }) => {
                         <p>药物A不存在！</p>
                     </div>
                 )}
+                {ddiInfo.drugA && (
+                    <div>
+                        <h3>Drug A: {ddiInfo.drugA.name}</h3>
+                        <p>DrugbankID: {ddiInfo.drugA.drugbankId}</p>
+                        <p>Category: {ddiInfo.drugA.category}</p>
+                        <p>Chemical Formula: {ddiInfo.drugA.chemicalFormula}</p>
+                        <p>SMILES: {ddiInfo.drugA.smiles}</p>
+                        <p>Description: {ddiInfo.drugA.description}</p>
+                        <p>Related Drugs: {ddiInfo.drugA.relatedDrugs}</p>
+                    </div>
+                )}
                 {hasDrugBKey && !ddiInfo.drugB && (
                     <div>
                         <p>药物B不存在！</p>
+                    </div>
+                )}
+                {hasDrugBKey && ddiInfo.drugB && (
+                    <div>
+                        <h3>Drug B: {ddiInfo.drugB.name}</h3>
+                        <p>DrugbankID: {ddiInfo.drugB.drugbankId}</p>
+                        <p>Category: {ddiInfo.drugB.category}</p>
+                        <p>Chemical Formula: {ddiInfo.drugB.chemicalFormula}</p>
+                        <p>SMILES: {ddiInfo.drugB.smiles}</p>
+                        <p>Description: {ddiInfo.drugB.description}</p>
+                        <p>Related Drugs: {ddiInfo.drugB.relatedDrugs}</p>
                     </div>
                 )}
             </div>
@@ -37,18 +66,15 @@ export const Sidebar: React.FC<SidebarProps> = ({ ddiInfo }) => {
 
     return (
         <div className="sidebar">
-            <h2>Drug Information</h2>
-            {ddiInfo.drugA &&(
-                <div>
-                <h3>Drug A: {ddiInfo.drugA.name}</h3>
-                <p>DrugbankID: {ddiInfo.drugA.drugbankId}</p>
-                <p>Category: {ddiInfo.drugA.category}</p>
-                <p>Chemical Formula: {ddiInfo.drugA.chemicalFormula}</p>
-                <p>SMILES: {ddiInfo.drugA.smiles}</p>
-                <p>Description: {ddiInfo.drugA.description}</p>
-                <p>Related Drugs: {ddiInfo.drugA.relatedDrugs}</p>
+            <div>
+            <h3>Drug A: {ddiInfo.drugA.name}</h3>
+            <p>DrugbankID: {ddiInfo.drugA.drugbankId}</p>
+            <p>Category: {ddiInfo.drugA.category}</p>
+            <p>Chemical Formula: {ddiInfo.drugA.chemicalFormula}</p>
+            <p>SMILES: {ddiInfo.drugA.smiles}</p>
+            <p>Description: {ddiInfo.drugA.description}</p>
+            <p>Related Drugs: {ddiInfo.drugA.relatedDrugs}</p>
             </div>
-            )}
 
             {ddiInfo.drugB && (
                 <div>

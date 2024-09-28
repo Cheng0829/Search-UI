@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { SearchBar } from './components/SearchBar';
 import { Sidebar } from './components/Sidebar';
-import { SearchResult, DDIResult } from './types';
+import { SearchResult, } from './types';
 import { cjkSearch } from './service/dataService';
 import './App.css';
 
@@ -23,11 +23,6 @@ const App: React.FC = () => {
       }
 
       const result = await cjkSearch(drugA, drugB);
-      // console.log(result);
-
-      if(result===null){
-        throw new Error('未找到相关药物！');
-      }
       setSearchResult(result);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An unknown error occurred');
