@@ -13,8 +13,15 @@ interface SidebarProps {
 
 export const Sidebar: React.FC<SidebarProps> = ({ ddiInfo }) => {
     if (!ddiInfo) return null;
+    console.log(ddiInfo);
 
     const hasDrugBKey = 'drugB' in ddiInfo;
+
+    // const hasDDI = ;
+    // console.log('hasDDI:', hasDDI);
+
+    if(ddiInfo.ddi)
+        console.log('\'confidence\' in ddiInfo.ddi')
 
     // 正常的只查单个药物的情况：药物A不存在，药物B为空
     if(!ddiInfo.drugA && !hasDrugBKey)
@@ -88,7 +95,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ ddiInfo }) => {
                 </div>
             )}
 
-            {ddiInfo.ddi && (
+            {(Object.keys(ddiInfo.ddi).length !== 0) && ddiInfo.ddi && (
                 <div>
                     <h3>DDI Information</h3>
 
@@ -100,6 +107,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ ddiInfo }) => {
                             <p>Confidence: {ddiInfo.ddi[ddiType].confidence}</p>
                         </div>
                     ))}
+                </div>
+            )}
+            {(Object.keys(ddiInfo.ddi).length === 0) && ddiInfo.ddi && (
+                <div>
+                    <h3>未查找到DDI信息！</h3>
                 </div>
             )}
         </div>

@@ -7,6 +7,7 @@ export const cjkSearch = async (drugAName: string, drugBName: string): Promise<S
         .then(data => data as SearchResult)
         .catch(error => {
             console.error('Error:', error);
-            throw error;
+            // throw error;
+            throw new Error('数据库出现了一些故障，请稍后重试！');
         });
 }
