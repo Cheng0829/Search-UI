@@ -60,6 +60,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ddiInfo}) => {
         return (
             <div className="error-Drug-null">
                 <div>
+                    <h2>Search Result</h2>
                     <p>暂无药物A信息</p>
                 </div>
             </div>
@@ -70,6 +71,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ddiInfo}) => {
     if (!ddiInfo.drugA || !ddiInfo.drugB || !hasDrugBKey)
         return (
             <div className="error-Drug-null">
+                <h2>Search Result</h2>
                 {!ddiInfo.drugA && (
                     <div>
                         <p>暂无药物A信息</p>
@@ -78,8 +80,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ddiInfo}) => {
                 {ddiInfo.drugA && (
                     <div>
                         {ddiInfo.drugA.name && <h3>Drug A: {ddiInfo.drugA.name}</h3>}
-                        {ddiInfo.drugA.drugbankId &&
-                            <p><strong>DrugbankID:</strong><br/> {ddiInfo.drugA.drugbankId}</p>}
+                        {/*{ddiInfo.drugA.drugbankId &&*/}
+                        {/*    <p><strong>DrugbankID:</strong><br/> {ddiInfo.drugA.drugbankId}</p>}*/}
                         {ddiInfo.drugA.category && <p><strong>Category:</strong><br/> {ddiInfo.drugA.category}</p>}
                         {ddiInfo.drugA.chemicalFormula &&
                             <p><strong>Chemical Formula:</strong><br/> {ddiInfo.drugA.chemicalFormula}</p>}
@@ -107,8 +109,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ddiInfo}) => {
                 {hasDrugBKey && ddiInfo.drugB && (
                     <div>
                         {ddiInfo.drugB.name && <h3>Drug B: {ddiInfo.drugB.name}</h3>}
-                        {ddiInfo.drugB.drugbankId &&
-                            <p><strong>DrugbankID</strong>:<br/> {ddiInfo.drugB.drugbankId}</p>}
+                        {/*{ddiInfo.drugB.drugbankId &&*/}
+                        {/*    <p><strong>DrugbankID</strong>:<br/> {ddiInfo.drugB.drugbankId}</p>}*/}
                         {ddiInfo.drugB.category && <p><strong>Category:</strong><br/> {ddiInfo.drugB.category}</p>}
                         {ddiInfo.drugB.chemicalFormula &&
                             <p><strong>Chemical Formula:</strong><br/> {ddiInfo.drugB.chemicalFormula}</p>}
@@ -132,9 +134,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ddiInfo}) => {
         );
     return (
         <div className="sidebar">
+            <h2>Search Result</h2>
             <div>
                 {ddiInfo.drugA.name && <h3>Drug A: {ddiInfo.drugA.name}</h3>}
-                {ddiInfo.drugA.drugbankId && <p><strong>DrugbankID:</strong><br/> {ddiInfo.drugA.drugbankId}</p>}
+                {/*{ddiInfo.drugA.drugbankId && <p><strong>DrugbankID:</strong><br/> {ddiInfo.drugA.drugbankId}</p>}*/}
                 {ddiInfo.drugA.category && <p><strong>Category:</strong><br/> {ddiInfo.drugA.category}</p>}
                 {ddiInfo.drugA.chemicalFormula &&
                     <p><strong>Chemical Formula:</strong><br/> {ddiInfo.drugA.chemicalFormula}</p>}
@@ -154,7 +157,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ddiInfo}) => {
             {hasDrugBKey && ddiInfo.drugB && (
                 <div>
                     {ddiInfo.drugB.name && <h3>Drug B: {ddiInfo.drugB.name}</h3>}
-                    {ddiInfo.drugB.drugbankId && <p><strong>DrugbankID</strong>:<br/> {ddiInfo.drugB.drugbankId}</p>}
+                    {/*{ddiInfo.drugB.drugbankId && <p><strong>DrugbankID</strong>:<br/> {ddiInfo.drugB.drugbankId}</p>}*/}
                     {ddiInfo.drugB.category && <p><strong>Category:</strong><br/> {ddiInfo.drugB.category}</p>}
                     {ddiInfo.drugB.chemicalFormula &&
                         <p><strong>Chemical Formula:</strong><br/> {ddiInfo.drugB.chemicalFormula}</p>}
@@ -181,14 +184,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ddiInfo}) => {
                         <div key={index}>
                             {/*{ddiType && <p><strong>DDI Type:</strong> {ddiType}</p>}*/}
                             <p> 此DDI已由生物医学实验验证。</p>
-                                {ddiInfo.ddi[ddiType].description &&
-                                    <p><strong>DDI Description:</strong> {ddiInfo.ddi[ddiType].description}</p>}
-                                {ddiInfo.ddi[ddiType].confidence &&
-                                    <p><strong>Model Confidence:</strong> {ddiInfo.ddi[ddiType].confidence}</p>}
-                                <button onClick={handleYesDDIButtonClick}>点击查询LLM分析</button>
-                                {showYesDDILLMResult && <div>{yesDDILLMresult}</div>}
+                            {ddiInfo.ddi[ddiType].description &&
+                                <p><strong>DDI Description:</strong> {ddiInfo.ddi[ddiType].description}</p>}
+                            {ddiInfo.ddi[ddiType].confidence &&
+                                <p><strong>Model Confidence:</strong> {ddiInfo.ddi[ddiType].confidence}</p>}
+                            <button onClick={handleYesDDIButtonClick}>点击查询LLM分析</button>
+                            {showYesDDILLMResult && <div>{yesDDILLMresult}</div>}
                         </div>
-                        ))}
+                    ))}
                 </div>
             )}
             {(Object.keys(ddiInfo.ddi).length === 0) && ddiInfo.ddi && (

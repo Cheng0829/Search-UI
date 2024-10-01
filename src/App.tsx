@@ -14,7 +14,7 @@ const App: React.FC = () => {
     const [batchSearchResult, setBatchSearchResult] = useState<BatchSearchResult | null>(null);
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [pageSize, setPageSize] = useState<number>(10);
-    const [totalPages, setTotalPages] = useState<number>(100); // 假设总页数为100
+    const [totalPages, setTotalPages] = useState<number>(100);
     const [inputPage, setInputPage] = useState<string>('');
 
     const handleSearch = async (drugA: string, drugB: string) => {
@@ -100,7 +100,7 @@ const App: React.FC = () => {
                 key={index}
                 onClick={() => typeof number === 'number' && handlePageChange(number)}
                 disabled={number === currentPage || number === '...'}
-                className={number === currentPage ? 'current-page' : ''}
+                className={`page-number ${number === currentPage ? 'current-page' : ''}`}
             >
                 {number}
             </button>
@@ -113,16 +113,46 @@ const App: React.FC = () => {
 
     return (
         <div className="app-container">
-            <SearchBar onSearch={handleSearch} />
+            <SearchBar onSearch={handleSearch}/>
 
-            {/* 分页控件 */}
+            {isLoading && <p className="loading">Loading...</p>}
+            {error && <p className="error">{error}</p>}
+
+            {searchResult && (
+                <div className="sidebar-container">
+                    <Sidebar ddiInfo={searchResult}/>
+                </div>
+            )}
+
+            <div className="content-container">
+                <h2>已通过生物医学实验验证的DDI</h2>
+                <br></br>
+                {batchSearchResult && (
+                    <ul className="result-list">
+                        {batchSearchResult.items.map((item, idx) => (
+                            <li key={idx} className="result-item">
+                                <strong>Drug A:</strong> {item.drugAName}, <strong>Drug B:</strong> {item.drugBName}
+                                <p><strong>DDI:</strong> {item.ddiDescription}</p>
+                            </li>
+                        ))}
+                    </ul>
+                )}
+            </div>
+
             <div className="pagination">
-                <button onClick={() => handlePageChange(1)} disabled={currentPage === 1}>首页</button>
-                <button onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>上一页</button>
+                <button className="page-nav" onClick={() => handlePageChange(1)} disabled={currentPage === 1}>首页
+                </button>
+                <button className="page-nav" onClick={() => handlePageChange(currentPage - 1)}
+                        disabled={currentPage === 1}>上一页
+                </button>
                 {renderPageNumbers()}
-                <button onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>下一页</button>
-                <button onClick={() => handlePageChange(totalPages)} disabled={currentPage === totalPages}>末页</button>
-                <form onSubmit={handleInputSubmit}>
+                <button className="page-nav" onClick={() => handlePageChange(currentPage + 1)}
+                        disabled={currentPage === totalPages}>下一页
+                </button>
+                <button className="page-nav" onClick={() => handlePageChange(totalPages)}
+                        disabled={currentPage === totalPages}>末页
+                </button>
+                <form onSubmit={handleInputSubmit} className="page-jump">
                     <input
                         type="number"
                         value={inputPage}
@@ -134,26 +164,6 @@ const App: React.FC = () => {
                     <button type="submit">跳转</button>
                 </form>
             </div>
-
-            {batchSearchResult && (
-                <div className="content-container">
-                    <ul>
-                        {batchSearchResult.items.map((item, idx) => (
-                            <li key={idx}>
-                                <strong>Drug A:</strong> {item.drugAName}, <strong>Drug B:</strong> {item.drugBName}, <strong>DDI:</strong> {item.ddiDescription}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            )}
-
-            {isLoading && <p>Loading...</p>}
-            {error && <p className="error">{error}</p>}
-            {searchResult && (
-                <div className="content-container">
-                    <Sidebar ddiInfo={searchResult} />
-                </div>
-            )}
         </div>
     );
 };
