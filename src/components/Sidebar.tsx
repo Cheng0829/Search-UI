@@ -76,7 +76,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ ddiInfo }) => {
                         {ddiInfo.drugA.actionMechanism && <p><strong>Action Mechanism:</strong><br/> {ddiInfo.drugA.actionMechanism}</p>}
                         {ddiInfo.drugA.proteinBinding && <p><strong>Protein Binding:</strong><br/> {ddiInfo.drugA.proteinBinding}</p>}
                         {ddiInfo.drugA.metabolism && <p><strong>Metabolism:</strong><br/> {ddiInfo.drugA.metabolism}</p>}
-                        <img src={`/drugImage/${ddiInfo.drugA.name}.png`} alt=""/>
+                        <img src={`./drugImage/${ddiInfo.drugA.name}.png`} alt=""/>
                     </div>
                 )}
                 {hasDrugBKey && !ddiInfo.drugB && (
@@ -97,7 +97,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ ddiInfo }) => {
                         {ddiInfo.drugB.actionMechanism && <p><strong>Action Mechanism:</strong><br/> {ddiInfo.drugB.actionMechanism}</p>}
                         {ddiInfo.drugB.proteinBinding && <p><strong>Protein Binding:</strong><br/> {ddiInfo.drugB.proteinBinding}</p>}
                         {ddiInfo.drugB.metabolism && <p><strong>Metabolism:</strong><br/> {ddiInfo.drugB.metabolism}</p>}
-                        <img src={`/drugImage/${ddiInfo.drugB.name}.png`} alt=""/>
+                        <img src={`./drugImage/${ddiInfo.drugB.name}.png`} alt=""/>
                     </div>
                 )}
             </div>
@@ -116,7 +116,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ ddiInfo }) => {
                 {ddiInfo.drugA.actionMechanism && <p><strong>Action Mechanism:</strong><br/> {ddiInfo.drugA.actionMechanism}</p>}
                 {ddiInfo.drugA.proteinBinding && <p><strong>Protein Binding:</strong><br/> {ddiInfo.drugA.proteinBinding}</p>}
                 {ddiInfo.drugA.metabolism && <p><strong>Metabolism:</strong><br/> {ddiInfo.drugA.metabolism}</p>}
-                <img src={`/drugImage/${ddiInfo.drugA.name}.png`} alt=""/>
+                <img src={`./drugImage/${ddiInfo.drugA.name}.png`} alt=""/>
             </div>
 
             {hasDrugBKey && ddiInfo.drugB && (
@@ -132,7 +132,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ ddiInfo }) => {
                     {ddiInfo.drugB.actionMechanism && <p><strong>Action Mechanism:</strong><br/> {ddiInfo.drugB.actionMechanism}</p>}
                     {ddiInfo.drugB.proteinBinding && <p><strong>Protein Binding:</strong><br/> {ddiInfo.drugB.proteinBinding}</p>}
                     {ddiInfo.drugB.metabolism && <p><strong>Metabolism:</strong><br/> {ddiInfo.drugB.metabolism}</p>}
-                    <img src={`/drugImage/${ddiInfo.drugB.name}.png`} alt=""/>
+                    <img src={`./drugImage/${ddiInfo.drugB.name}.png`} alt=""/>
                 </div>
             )}
 
