@@ -13,8 +13,8 @@ interface SidebarProps {
     }
 }
 
-
 export const Sidebar: React.FC<SidebarProps> = ({ ddiInfo }) => {
+
     // 状态变量用于存储结果
     const [result, setResult] = useState('');
     const [showResult, setShowResult] = useState(false);
@@ -39,6 +39,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ ddiInfo }) => {
     // console.log(ddiInfo);
 
     const hasDrugBKey = 'drugB' in ddiInfo;
+    console.log('hasDrugBKey: ', hasDrugBKey);
+    console.log('!ddiInfo.drugB: ', !ddiInfo.drugB);
+    console.log('ddiInfo: ', ddiInfo);
 
     // 正常的只查单个药物的情况：药物A不存在，药物B为空
     if(!ddiInfo.drugA && !hasDrugBKey)
@@ -50,68 +53,85 @@ export const Sidebar: React.FC<SidebarProps> = ({ ddiInfo }) => {
             </div>
         );
 
-    if(!ddiInfo.drugA || (!ddiInfo.drugB && hasDrugBKey))
+    // if(!ddiInfo.drugA || !ddiInfo.drugB || hasDrugBKey)
+    //     console.log('!ddiInfo.drugA || (!ddiInfo.drugB && hasDrugBKey)');
+    if(!ddiInfo.drugA || !ddiInfo.drugB || !hasDrugBKey)
         return (
             <div className="error-Drug-null">
                 {!ddiInfo.drugA && (
                     <div>
-                        <p>药物A不存在！</p>
+                        <p>暂无药物A信息</p>
                     </div>
                 )}
                 {ddiInfo.drugA && (
                     <div>
-                        <h3>Drug A: {ddiInfo.drugA.name}</h3>
-                        <p>DrugbankID: {ddiInfo.drugA.drugbankId}</p>
-                        <p>Category: {ddiInfo.drugA.category}</p>
-                        <p>Chemical Formula: {ddiInfo.drugA.chemicalFormula}</p>
-                        <p>SMILES: {ddiInfo.drugA.smiles}</p>
-                        <p>Description: {ddiInfo.drugA.description}</p>
-                        <p>Related Drugs: {ddiInfo.drugA.relatedDrugs}</p>
+                        {ddiInfo.drugA.name && <h3>Drug A: {ddiInfo.drugA.name}</h3>}
+                        {ddiInfo.drugA.drugbankId && <p><strong>DrugbankID:</strong><br/> {ddiInfo.drugA.drugbankId}</p>}
+                        {ddiInfo.drugA.category && <p><strong>Category:</strong><br/> {ddiInfo.drugA.category}</p>}
+                        {ddiInfo.drugA.chemicalFormula && <p><strong>Chemical Formula:</strong><br/> {ddiInfo.drugA.chemicalFormula}</p>}
+                        {ddiInfo.drugA.smiles && <p><strong>SMILES:</strong><br/> {ddiInfo.drugA.smiles}</p>}
+                        {ddiInfo.drugA.description && <p><strong>Description:</strong><br/> {ddiInfo.drugA.description}</p>}
+                        {ddiInfo.drugA.relatedDrugs && <p><strong>Related Drugs:</strong><br/> {ddiInfo.drugA.relatedDrugs}</p>}
+                        {ddiInfo.drugA.pharmacodynamics && <p><strong>Pharmacodynamics:</strong><br/> {ddiInfo.drugA.pharmacodynamics}</p>}
+                        {ddiInfo.drugA.actionMechanism && <p><strong>Action Mechanism:</strong><br/> {ddiInfo.drugA.actionMechanism}</p>}
+                        {ddiInfo.drugA.proteinBinding && <p><strong>Protein Binding:</strong><br/> {ddiInfo.drugA.proteinBinding}</p>}
+                        {ddiInfo.drugA.metabolism && <p><strong>Metabolism:</strong><br/> {ddiInfo.drugA.metabolism}</p>}
                         <img src={`/drugImage/${ddiInfo.drugA.name}.png`} alt=""/>
                     </div>
                 )}
                 {hasDrugBKey && !ddiInfo.drugB && (
                     <div>
-                        <p>药物B不存在！</p>
+                        <p>暂无药物B信息</p>
                     </div>
                 )}
                 {hasDrugBKey && ddiInfo.drugB && (
                     <div>
-                        <h3>Drug B: {ddiInfo.drugB.name}</h3>
-                        <p>DrugbankID: {ddiInfo.drugB.drugbankId}</p>
-                        <p>Category: {ddiInfo.drugB.category}</p>
-                        <p>Chemical Formula: {ddiInfo.drugB.chemicalFormula}</p>
-                        <p>SMILES: {ddiInfo.drugB.smiles}</p>
-                        <p>Description: {ddiInfo.drugB.description}</p>
-                        <p>Related Drugs: {ddiInfo.drugB.relatedDrugs}</p>
+                        {ddiInfo.drugB.name && <h3>Drug B: {ddiInfo.drugB.name}</h3>}
+                        {ddiInfo.drugB.drugbankId && <p><strong>DrugbankID</strong>:<br/> {ddiInfo.drugB.drugbankId}</p>}
+                        {ddiInfo.drugB.category && <p><strong>Category:</strong><br/> {ddiInfo.drugB.category}</p>}
+                        {ddiInfo.drugB.chemicalFormula && <p><strong>Chemical Formula:</strong><br/> {ddiInfo.drugB.chemicalFormula}</p>}
+                        {ddiInfo.drugB.smiles && <p><strong>SMILES:</strong><br/>{ddiInfo.drugB.smiles}</p>}
+                        {ddiInfo.drugB.description && <p><strong>Description:</strong><br/> {ddiInfo.drugB.description}</p>}
+                        {ddiInfo.drugB.relatedDrugs && <p><strong>Related Drugs:</strong><br/> {ddiInfo.drugB.relatedDrugs}</p>}
+                        {ddiInfo.drugB.pharmacodynamics && <p><strong>Pharmacodynamics:</strong><br/> {ddiInfo.drugB.pharmacodynamics}</p>}
+                        {ddiInfo.drugB.actionMechanism && <p><strong>Action Mechanism:</strong><br/> {ddiInfo.drugB.actionMechanism}</p>}
+                        {ddiInfo.drugB.proteinBinding && <p><strong>Protein Binding:</strong><br/> {ddiInfo.drugB.proteinBinding}</p>}
+                        {ddiInfo.drugB.metabolism && <p><strong>Metabolism:</strong><br/> {ddiInfo.drugB.metabolism}</p>}
                         <img src={`/drugImage/${ddiInfo.drugB.name}.png`} alt=""/>
                     </div>
                 )}
             </div>
         );
-
     return (
         <div className="sidebar">
             <div>
-                <h3>Drug A: {ddiInfo.drugA.name}</h3>
-                <p>DrugbankID: {ddiInfo.drugA.drugbankId}</p>
-                <p>Category: {ddiInfo.drugA.category}</p>
-                <p>Chemical Formula: {ddiInfo.drugA.chemicalFormula}</p>
-                <p>SMILES: {ddiInfo.drugA.smiles}</p>
-                <p>Description: {ddiInfo.drugA.description}</p>
-                <p>Related Drugs: {ddiInfo.drugA.relatedDrugs}</p>
+                {ddiInfo.drugA.name && <h3>Drug A: {ddiInfo.drugA.name}</h3>}
+                {ddiInfo.drugA.drugbankId && <p><strong>DrugbankID:</strong><br/> {ddiInfo.drugA.drugbankId}</p>}
+                {ddiInfo.drugA.category && <p><strong>Category:</strong><br/> {ddiInfo.drugA.category}</p>}
+                {ddiInfo.drugA.chemicalFormula && <p><strong>Chemical Formula:</strong><br/> {ddiInfo.drugA.chemicalFormula}</p>}
+                {ddiInfo.drugA.smiles && <p><strong>SMILES:</strong><br/> {ddiInfo.drugA.smiles}</p>}
+                {ddiInfo.drugA.description && <p><strong>Description:</strong><br/> {ddiInfo.drugA.description}</p>}
+                {ddiInfo.drugA.relatedDrugs && <p><strong>Related Drugs:</strong><br/> {ddiInfo.drugA.relatedDrugs}</p>}
+                {ddiInfo.drugA.pharmacodynamics && <p><strong>Pharmacodynamics:</strong><br/> {ddiInfo.drugA.pharmacodynamics}</p>}
+                {ddiInfo.drugA.actionMechanism && <p><strong>Action Mechanism:</strong><br/> {ddiInfo.drugA.actionMechanism}</p>}
+                {ddiInfo.drugA.proteinBinding && <p><strong>Protein Binding:</strong><br/> {ddiInfo.drugA.proteinBinding}</p>}
+                {ddiInfo.drugA.metabolism && <p><strong>Metabolism:</strong><br/> {ddiInfo.drugA.metabolism}</p>}
                 <img src={`/drugImage/${ddiInfo.drugA.name}.png`} alt=""/>
             </div>
 
-            {ddiInfo.drugB && (
+            {hasDrugBKey && ddiInfo.drugB && (
                 <div>
-                    <h3>Drug B: {ddiInfo.drugB.name}</h3>
-                    <p>DrugbankID: {ddiInfo.drugB.drugbankId}</p>
-                    <p>Category: {ddiInfo.drugB.category}</p>
-                    <p>Chemical Formula: {ddiInfo.drugB.chemicalFormula}</p>
-                    <p>SMILES: {ddiInfo.drugB.smiles}</p>
-                    <p>Description: {ddiInfo.drugB.description}</p>
-                    <p>Related Drugs: {ddiInfo.drugB.relatedDrugs}</p>
+                    {ddiInfo.drugB.name && <h3>Drug B: {ddiInfo.drugB.name}</h3>}
+                    {ddiInfo.drugB.drugbankId && <p><strong>DrugbankID</strong>:<br/> {ddiInfo.drugB.drugbankId}</p>}
+                    {ddiInfo.drugB.category && <p><strong>Category:</strong><br/> {ddiInfo.drugB.category}</p>}
+                    {ddiInfo.drugB.chemicalFormula && <p><strong>Chemical Formula:</strong><br/> {ddiInfo.drugB.chemicalFormula}</p>}
+                    {ddiInfo.drugB.smiles && <p><strong>SMILES:</strong><br/>{ddiInfo.drugB.smiles}</p>}
+                    {ddiInfo.drugB.description && <p><strong>Description:</strong><br/> {ddiInfo.drugB.description}</p>}
+                    {ddiInfo.drugB.relatedDrugs && <p><strong>Related Drugs:</strong><br/> {ddiInfo.drugB.relatedDrugs}</p>}
+                    {ddiInfo.drugB.pharmacodynamics && <p><strong>Pharmacodynamics:</strong><br/> {ddiInfo.drugB.pharmacodynamics}</p>}
+                    {ddiInfo.drugB.actionMechanism && <p><strong>Action Mechanism:</strong><br/> {ddiInfo.drugB.actionMechanism}</p>}
+                    {ddiInfo.drugB.proteinBinding && <p><strong>Protein Binding:</strong><br/> {ddiInfo.drugB.proteinBinding}</p>}
+                    {ddiInfo.drugB.metabolism && <p><strong>Metabolism:</strong><br/> {ddiInfo.drugB.metabolism}</p>}
                     <img src={`/drugImage/${ddiInfo.drugB.name}.png`} alt=""/>
                 </div>
             )}
@@ -122,9 +142,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ ddiInfo }) => {
                     {/* 输出所有的 DDI 类型和描述 */}
                     {Object.keys(ddiInfo.ddi).map((ddiType, index) => (
                         <div key={index}>
-                            <p>DDI Type: {ddiType}</p>
-                            <p>Description: {ddiInfo.ddi[ddiType].description}</p>
-                            <p>Confidence: {ddiInfo.ddi[ddiType].confidence}</p>
+                            { ddiType && <p><strong>DDI Type:</strong> {ddiType}</p>}
+                            { ddiInfo.ddi[ddiType].description && <p><strong>Description:</strong> {ddiInfo.ddi[ddiType].description}</p>}
+                            { ddiInfo.ddi[ddiType].confidence && <p><strong>Confidence:</strong> {ddiInfo.ddi[ddiType].confidence}</p>}
                         </div>
                     ))}
                 </div>
@@ -132,7 +152,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ ddiInfo }) => {
             {/*Trioxsalen         Aminolevulinic acid        Verteporfin*/}
             {(Object.keys(ddiInfo.ddi).length === 0) && ddiInfo.ddi && (
                 <div>
-                    <h3>未查找到DDI信息！</h3>
+                    <h3>暂无相关DDI信息！</h3>
                     <button onClick={handleButtonClick}>点击查询LLM</button>
                     {/* 只有当 showResult 为 true 时才显示查询结果 */}
                     {showResult && <div>{result}</div>}

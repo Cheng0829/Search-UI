@@ -10,6 +10,11 @@ export interface DrugInfo {
     description: string;
     category: string;
     relatedDrugs: string; // 注意：这里应该是字符串数组，所以应该改为string[]
+
+    pharmacodynamics: string;
+    actionMechanism: string;
+    proteinBinding: string;
+    metabolism: string;
 }
 
 export interface DDIResult {
