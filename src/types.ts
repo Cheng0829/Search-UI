@@ -27,3 +27,11 @@ export interface SearchResult {
     "drugB"?: DrugInfo;
     "ddi": { [key: string]: DDIResult }; // 使用索引签名来表示任意键的 DDIResult 对象
 }
+
+export interface BatchSearchResult {
+    items: Array<{
+        drugAName: string;
+        drugBName: string;
+        ddiDescription: string;
+    }>;
+}
