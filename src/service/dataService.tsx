@@ -1,7 +1,9 @@
 import {BatchSearchResult, SearchResult} from '../types';
 
 export const cjkSearch = async (drugAName: string, drugBName: string): Promise<SearchResult> => {
-    return fetch(`https://5f4ddf95.r7.cpolar.top/search/${drugAName}&${drugBName}`)
+    // http://127.0.0.1:8080/search/${drugAName}&${drugBName}
+    // https://5f4ddf95.r7.cpolar.top/search/${drugAName}&${drugBName}
+    return fetch(`http://127.0.0.1:8080/search/${drugAName}&${drugBName}`)
         .then(response => response.json())
         .then(data => data as SearchResult)
         .catch(error => {
@@ -11,7 +13,9 @@ export const cjkSearch = async (drugAName: string, drugBName: string): Promise<S
         });
 }
 export const batchCjkSearch = async (index: number, limit: number): Promise<BatchSearchResult> => {
-    return fetch(`https://5f4ddf95.r7.cpolar.top/pageSearch/index=${index+1}&limit=${limit}`)
+    // http://127.0.0.1:8080/pageSearch/index=${index+1}&limit=${limit}
+    // https://5f4ddf95.r7.cpolar.top/pageSearch/index=${index+1}&limit=${limit}
+    return fetch(`http://127.0.0.1:8080/pageSearch/index=${index+1}&limit=${limit}`)
         .then(response => response.json())
         .then(data => data as BatchSearchResult)
         .catch(error => {
@@ -22,9 +26,10 @@ export const batchCjkSearch = async (index: number, limit: number): Promise<Batc
 }
 
 export const notDDISearchLLM = async (drugAName: string, drugBName: string | undefined): Promise<string> => {
-    // console.log(`https://5f4ddf95.r7.cpolar.top/LLM/${drugAName}&${drugBName}`);
+    // http://127.0.0.1:8080/LLM/DDI/No/${drugAName}&${drugBName}
+    // https://5f4ddf95.r7.cpolar.top/LLM/DDI/No/${drugAName}&${drugBName}
     try {
-        const response = await fetch(`https://5f4ddf95.r7.cpolar.top/LLM/DDI/No/${drugAName}&${drugBName}`, {
+        const response = await fetch(`http://127.0.0.1:8080/LLM/DDI/No/${drugAName}&${drugBName}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -40,9 +45,10 @@ export const notDDISearchLLM = async (drugAName: string, drugBName: string | und
 }
 
 export const yesDDISearchLLM = async (drugAName: string, drugBName: string | undefined): Promise<string> => {
-    // console.log(`https://5f4ddf95.r7.cpolar.top/LLM/${drugAName}&${drugBName}`);
+    // http://127.0.0.1:8080/LLM/DDI/Yes/${drugAName}&${drugBName}
+    // https://5f4ddf95.r7.cpolar.top/LLM/DDI/Yes/${drugAName}&${drugBName}
     try {
-        const response = await fetch(`https://5f4ddf95.r7.cpolar.top/LLM/DDI/Yes/${drugAName}&${drugBName}`, {
+        const response = await fetch(`http://127.0.0.1:8080/LLM/DDI/Yes/${drugAName}&${drugBName}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -56,3 +62,9 @@ export const yesDDISearchLLM = async (drugAName: string, drugBName: string | und
         throw error;
     }
 }
+export const loginVerify = async (username: string, password: string): Promise<string> => {
+    if (username === "root" && password === "123456")
+        return "yes";
+    else
+        return "no";
+};

@@ -2,20 +2,23 @@
 import React, { useState, useEffect } from 'react';
 import { SearchBar } from './components/SearchBar';
 import { Sidebar } from './components/Sidebar';
+import { Login } from './components/Login';
 import { SearchResult, BatchSearchResult } from './types';
-import { cjkSearch, batchCjkSearch } from './service/dataService';
+import { cjkSearch, batchCjkSearch, loginVerify } from './service/dataService';
 import './App.css';
 
 const App: React.FC = () => {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [searchResult, setSearchResult] = useState<SearchResult | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
-
+    const [loginError, setLoginError] = useState<string | null>(null);
     const [batchSearchResult, setBatchSearchResult] = useState<BatchSearchResult | null>(null);
     const [currentPage, setCurrentPage] = useState<number>(1);
-    const [pageSize, setPageSize] = useState<number>(10);
-    const [totalPages, setTotalPages] = useState<number>(100);
+    const [pageSize] = useState<number>(10);
+    const [totalPages] = useState<number>(100);
     const [inputPage, setInputPage] = useState<string>('');
+    const [username, setUsername] = useState<string>('');
 
     const handleSearch = async (drugA: string, drugB: string) => {
         setIsLoading(true);
@@ -111,9 +114,60 @@ const App: React.FC = () => {
         searchAlreadyExistDDI(currentPage, pageSize);
     }, []);
 
+
+    const handleLogin = async (username: string, password: string) => {
+        try {
+            const result = await loginVerify(username, password);
+            if (result === "yes") {
+                setUsername(username)
+                setIsLoggedIn(true);
+                localStorage.setItem('isLoggedIn', 'true');
+                setLoginError(null);
+            } else {
+                setLoginError('用户名或密码错误');
+            }
+        } catch (err) {
+            setLoginError('登录过程中发生错误');
+        }
+    };
+
+    const handleLogout = () => {
+        setUsername('')
+        setIsLoggedIn(false);
+        localStorage.removeItem('isLoggedIn');
+    };
+
+    useEffect(() => {
+        const loggedIn = localStorage.getItem('isLoggedIn');
+        if (loggedIn === 'true') {
+            setIsLoggedIn(true);
+        }
+    }, []);
+
+    if (!isLoggedIn) {
+        return <Login onLogin={handleLogin} error={loginError} />;
+    }
+
     return (
+
         <div className="app-container">
-            <SearchBar onSearch={handleSearch}/>
+            {/*<div className="header">*/}
+            {/*    <p>用户{username}已登录 </p>*/}
+            {/*    <button onClick={handleLogout} className="logout-button">登出</button>*/}
+            {/*</div>*/}
+            <header className="header">
+                <div className="search-bar-container">
+                    <SearchBar onSearch={handleSearch}/>
+                </div>
+                <div className="user-info-container">
+                    <div className="user-info">
+                        <span className="login-status">用户</span>
+                        <span className="username">{username}</span>
+                        <span className="login-status">已登录</span>
+                    </div>
+                    <button onClick={handleLogout} className="logout-button">登出</button>
+                </div>
+            </header>
 
             {isLoading && <p className="loading">Loading...</p>}
             {error && <p className="error">{error}</p>}
