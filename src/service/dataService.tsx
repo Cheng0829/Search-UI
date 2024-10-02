@@ -63,8 +63,24 @@ export const yesDDISearchLLM = async (drugAName: string, drugBName: string | und
     }
 }
 export const loginVerify = async (username: string, password: string): Promise<string> => {
-    if (username === "root" && password === "123456")
-        return "yes";
-    else
-        return "no";
+    // if (username === "root" && password === "123456")
+    //     return "yes";
+    // else
+    //     return "no";
+    // http://127.0.0.1:8080/loginVerify/${username}&${password}
+    // https://5f4ddf95.r7.cpolar.top/loginVerify/${username}&${password}
+    try {
+        const response = await fetch(`http://127.0.0.1:8080/loginVerify/${username}&${password}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        // 假设后端返回的是纯文本
+        return await response.text();
+    } catch (error) {
+        console.error('Fetch error:', error);
+        throw error;
+    }
 };
