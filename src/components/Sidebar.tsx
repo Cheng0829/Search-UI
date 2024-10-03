@@ -20,6 +20,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ddiInfo}) => {
     const [showNotDDILLMResult, setShowNotDDILLMResult] = useState(false);
     const [yesDDILLMresult, setYesDDILLMResult] = useState('');
     const [showYesDDILLMResult, setShowYesDDILLMResult] = useState(false);
+    // const [yesDDIDescription, setYesDDIDescription] = useState('');
+
     // 处理按钮点击事件
     const handleNotDDIButtonClick = async () => {
         setNotDDILLMResult('');
@@ -29,11 +31,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ddiInfo}) => {
         setNotDDILLMResult(await data);
         setShowNotDDILLMResult(true); // 设置为 true 以显示结果
     };
-    const handleYesDDIButtonClick = async () => {
+    const handleYesDDIButtonClick = async (description: string) => {
+        // ddiInfo.ddi.description
         setYesDDILLMResult('');
         setShowYesDDILLMResult(false);
 
-        const data = yesDDISearchLLM(ddiInfo.drugA.name, ddiInfo.drugB?.name)
+        const data = yesDDISearchLLM(ddiInfo.drugA.name, ddiInfo.drugB?.name, description)
         setYesDDILLMResult(await data);
         setShowYesDDILLMResult(true); // 设置为 true 以显示结果
     };
@@ -82,14 +85,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ddiInfo}) => {
                         {ddiInfo.drugA.name && <h3>Drug A: {ddiInfo.drugA.name}</h3>}
                         {/*{ddiInfo.drugA.drugbankId &&*/}
                         {/*    <p><strong>DrugbankID:</strong><br/> {ddiInfo.drugA.drugbankId}</p>}*/}
-                        {ddiInfo.drugA.category && <p><strong>Category:</strong><br/> {ddiInfo.drugA.category}</p>}
+                        {ddiInfo.drugA.category && <p><strong>Category:</strong><br/> {ddiInfo.drugA.category} etc.</p>}
                         {ddiInfo.drugA.chemicalFormula &&
                             <p><strong>Chemical Formula:</strong><br/> {ddiInfo.drugA.chemicalFormula}</p>}
                         {ddiInfo.drugA.smiles && <p><strong>SMILES:</strong><br/> {ddiInfo.drugA.smiles}</p>}
                         {ddiInfo.drugA.description &&
                             <p><strong>Description:</strong><br/> {ddiInfo.drugA.description}</p>}
                         {ddiInfo.drugA.relatedDrugs &&
-                            <p><strong>Related Drugs:</strong><br/> {ddiInfo.drugA.relatedDrugs}</p>}
+                            <p><strong>Related Drugs:</strong><br/> {ddiInfo.drugA.relatedDrugs} etc.</p>}
                         {ddiInfo.drugA.pharmacodynamics &&
                             <p><strong>Pharmacodynamics:</strong><br/> {ddiInfo.drugA.pharmacodynamics}</p>}
                         {ddiInfo.drugA.actionMechanism &&
@@ -111,14 +114,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ddiInfo}) => {
                         {ddiInfo.drugB.name && <h3>Drug B: {ddiInfo.drugB.name}</h3>}
                         {/*{ddiInfo.drugB.drugbankId &&*/}
                         {/*    <p><strong>DrugbankID</strong>:<br/> {ddiInfo.drugB.drugbankId}</p>}*/}
-                        {ddiInfo.drugB.category && <p><strong>Category:</strong><br/> {ddiInfo.drugB.category}</p>}
+                        {ddiInfo.drugB.category && <p><strong>Category:</strong><br/> {ddiInfo.drugB.category} etc.</p>}
                         {ddiInfo.drugB.chemicalFormula &&
                             <p><strong>Chemical Formula:</strong><br/> {ddiInfo.drugB.chemicalFormula}</p>}
                         {ddiInfo.drugB.smiles && <p><strong>SMILES:</strong><br/>{ddiInfo.drugB.smiles}</p>}
                         {ddiInfo.drugB.description &&
                             <p><strong>Description:</strong><br/> {ddiInfo.drugB.description}</p>}
                         {ddiInfo.drugB.relatedDrugs &&
-                            <p><strong>Related Drugs:</strong><br/> {ddiInfo.drugB.relatedDrugs}</p>}
+                            <p><strong>Related Drugs:</strong><br/> {ddiInfo.drugB.relatedDrugs} etc.</p>}
                         {ddiInfo.drugB.pharmacodynamics &&
                             <p><strong>Pharmacodynamics:</strong><br/> {ddiInfo.drugB.pharmacodynamics}</p>}
                         {ddiInfo.drugB.actionMechanism &&
@@ -138,12 +141,12 @@ export const Sidebar: React.FC<SidebarProps> = ({ddiInfo}) => {
             <div>
                 {ddiInfo.drugA.name && <h3>Drug A: {ddiInfo.drugA.name}</h3>}
                 {/*{ddiInfo.drugA.drugbankId && <p><strong>DrugbankID:</strong><br/> {ddiInfo.drugA.drugbankId}</p>}*/}
-                {ddiInfo.drugA.category && <p><strong>Category:</strong><br/> {ddiInfo.drugA.category}</p>}
+                {ddiInfo.drugA.category && <p><strong>Category:</strong><br/> {ddiInfo.drugA.category} etc.</p>}
                 {ddiInfo.drugA.chemicalFormula &&
                     <p><strong>Chemical Formula:</strong><br/> {ddiInfo.drugA.chemicalFormula}</p>}
                 {ddiInfo.drugA.smiles && <p><strong>SMILES:</strong><br/> {ddiInfo.drugA.smiles}</p>}
                 {ddiInfo.drugA.description && <p><strong>Description:</strong><br/> {ddiInfo.drugA.description}</p>}
-                {ddiInfo.drugA.relatedDrugs && <p><strong>Related Drugs:</strong><br/> {ddiInfo.drugA.relatedDrugs}</p>}
+                {ddiInfo.drugA.relatedDrugs && <p><strong>Related Drugs:</strong><br/> {ddiInfo.drugA.relatedDrugs} etc.</p>}
                 {ddiInfo.drugA.pharmacodynamics &&
                     <p><strong>Pharmacodynamics:</strong><br/> {ddiInfo.drugA.pharmacodynamics}</p>}
                 {ddiInfo.drugA.actionMechanism &&
@@ -158,13 +161,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ddiInfo}) => {
                 <div>
                     {ddiInfo.drugB.name && <h3>Drug B: {ddiInfo.drugB.name}</h3>}
                     {/*{ddiInfo.drugB.drugbankId && <p><strong>DrugbankID</strong>:<br/> {ddiInfo.drugB.drugbankId}</p>}*/}
-                    {ddiInfo.drugB.category && <p><strong>Category:</strong><br/> {ddiInfo.drugB.category}</p>}
+                    {ddiInfo.drugB.category && <p><strong>Category:</strong><br/> {ddiInfo.drugB.category} etc.</p>}
                     {ddiInfo.drugB.chemicalFormula &&
                         <p><strong>Chemical Formula:</strong><br/> {ddiInfo.drugB.chemicalFormula}</p>}
                     {ddiInfo.drugB.smiles && <p><strong>SMILES:</strong><br/>{ddiInfo.drugB.smiles}</p>}
                     {ddiInfo.drugB.description && <p><strong>Description:</strong><br/> {ddiInfo.drugB.description}</p>}
                     {ddiInfo.drugB.relatedDrugs &&
-                        <p><strong>Related Drugs:</strong><br/> {ddiInfo.drugB.relatedDrugs}</p>}
+                        <p><strong>Related Drugs:</strong><br/> {ddiInfo.drugB.relatedDrugs} etc.</p>}
                     {ddiInfo.drugB.pharmacodynamics &&
                         <p><strong>Pharmacodynamics:</strong><br/> {ddiInfo.drugB.pharmacodynamics}</p>}
                     {ddiInfo.drugB.actionMechanism &&
@@ -188,7 +191,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ddiInfo}) => {
                                 <p><strong>DDI Description:</strong> {ddiInfo.ddi[ddiType].description}</p>}
                             {ddiInfo.ddi[ddiType].confidence &&
                                 <p><strong>Model Confidence:</strong> {ddiInfo.ddi[ddiType].confidence}</p>}
-                            <button onClick={handleYesDDIButtonClick}>点击查询LLM分析</button>
+                            <button onClick={() => handleYesDDIButtonClick(ddiInfo.ddi[ddiType].description)}>点击查询LLM分析</button>
                             {showYesDDILLMResult && <div>{yesDDILLMresult}</div>}
                         </div>
                     ))}

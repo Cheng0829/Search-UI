@@ -25,30 +25,14 @@ export const batchCjkSearch = async (index: number, limit: number): Promise<Batc
         });
 }
 
-export const notDDISearchLLM = async (drugAName: string, drugBName: string | undefined): Promise<string> => {
-    // http://127.0.0.1:8080/LLM/DDI/No/${drugAName}&${drugBName}
-    // https://5f4ddf95.r7.cpolar.top/LLM/DDI/No/${drugAName}&${drugBName}
-    try {
-        const response = await fetch(`http://127.0.0.1:8080/LLM/DDI/No/${drugAName}&${drugBName}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-
-        // 假设后端返回的是纯文本
-        return await response.text();
-    } catch (error) {
-        console.error('Fetch error:', error);
-        throw error;
-    }
-}
-
-export const yesDDISearchLLM = async (drugAName: string, drugBName: string | undefined): Promise<string> => {
+export const yesDDISearchLLM = async (drugAName: string, drugBName: string | undefined, description: string): Promise<string> => {
+    const url = `http://127.0.0.1:829/llm?drugA=${drugAName}&&drugB=${drugBName}&type=1&description=${description}`.replace(/ /g, '%20');;
+    console.log(url);
     // http://127.0.0.1:8080/LLM/DDI/Yes/${drugAName}&${drugBName}
     // https://5f4ddf95.r7.cpolar.top/LLM/DDI/Yes/${drugAName}&${drugBName}
     try {
-        const response = await fetch(`http://127.0.0.1:8080/LLM/DDI/Yes/${drugAName}&${drugBName}`, {
+        // http://127.0.0.1:829/llm?drugA=${drugAName}&&drugB=${drugBName}&type=1&description=${description}
+        const response = await fetch(url, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -62,6 +46,30 @@ export const yesDDISearchLLM = async (drugAName: string, drugBName: string | und
         throw error;
     }
 }
+
+export const notDDISearchLLM = async (drugAName: string, drugBName: string | undefined ): Promise<string> => {
+    const url = `http://127.0.0.1:829/llm?drugA=${drugAName}&&drugB=${drugBName}&type=2`.replace(/ /g, '%20');
+    console.log(url);
+    // http://127.0.0.1:8080/LLM/DDI/No/${drugAName}&${drugBName}
+    // https://5f4ddf95.r7.cpolar.top/LLM/DDI/No/${drugAName}&${drugBName}
+    try {
+        // http://127.0.0.1:829/llm?drugA=Trioxsalen&drugB=Verteporfin&type=1&ddi=description
+        // http://127.0.0.1:829/llm?drugA=${drugAName}&&drugB=${drugBName}&type=2
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        // 假设后端返回的是纯文本
+        return await response.text();
+    } catch (error) {
+        console.error('Fetch error:', error);
+        throw error;
+    }
+}
+
 export const loginVerify = async (username: string, password: string): Promise<string> => {
     // if (username === "root" && password === "123456")
     //     return "yes";
