@@ -114,7 +114,6 @@ const App: React.FC = () => {
         searchAlreadyExistDDI(currentPage, pageSize);
     }, []);
 
-
     const handleLogin = async (username: string, password: string) => {
         try {
             const result = await loginVerify(username, password);

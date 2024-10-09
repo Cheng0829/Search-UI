@@ -38,10 +38,10 @@ export const yesDDISearchLLM = async (drugAName: string, drugBName: string | und
                 'Content-Type': 'application/json',
             },
         });
-        if (!response.ok) {
-            return "服务器维护中，请稍后再试~";
-            // throw new Error(`HTTP error! status: ${response.status}`);
-        }
+        // if (!response.ok) {
+        //     return "服务器维护中，请稍后再试~";
+        //     // throw new Error(`HTTP error! status: ${response.status}`);
+        // }
         // 假设后端返回的是纯文本
         return await response.text();
     } catch (error) {
@@ -60,7 +60,7 @@ export const yesDDISearchLLM = async (drugAName: string, drugBName: string | und
 
 export const notDDISearchLLM = async (drugAName: string, drugBName: string | undefined ): Promise<string> => {
     const url = `http://127.0.0.1:8290/llm?drugA=${drugAName}&&drugB=${drugBName}&type=2`.replace(/ /g, '%20');
-    // console.log(url);
+    console.log(url);
     // http://127.0.0.1:8080/LLM/DDI/No/${drugAName}&${drugBName}
     // https://5f4ddf95.r7.cpolar.top/LLM/DDI/No/${drugAName}&${drugBName}
     try {
@@ -72,10 +72,11 @@ export const notDDISearchLLM = async (drugAName: string, drugBName: string | und
                 'Content-Type': 'application/json',
             },
         });
-        if (!response.ok) {
-            return "服务器维护中，请稍后再试~";
-            // throw new Error(`HTTP error! status: ${response.status}`);
-        }
+        console.log(response);
+        // if (!response.ok) {
+        //     return "服务器维护中，请稍后再试~";
+        //     // throw new Error(`HTTP error! status: ${response.status}`);
+        // }
         // 假设后端返回的是纯文本
         return await response.text();
     } catch (error) {
