@@ -16,29 +16,33 @@ interface SidebarProps {
 export const Sidebar: React.FC<SidebarProps> = ({ddiInfo}) => {
 
     // 状态变量用于存储结果
-    const [notDDILLMresult, setNotDDILLMResult] = useState('');
+    const [notDDILLMResult, setNotDDILLMResult] = useState('');
     const [showNotDDILLMResult, setShowNotDDILLMResult] = useState(false);
-    const [yesDDILLMresult, setYesDDILLMResult] = useState('');
+    const [yesDDILLMResult, setYesDDILLMResult] = useState('');
     const [showYesDDILLMResult, setShowYesDDILLMResult] = useState(false);
     // const [yesDDIDescription, setYesDDIDescription] = useState('');
+    const [llmAnalyzing, setLlmAnalyzing] = useState(false);
 
     // 处理按钮点击事件
     const handleNotDDIButtonClick = async () => {
+        setLlmAnalyzing(true)
         setNotDDILLMResult('');
         setShowNotDDILLMResult(false);
 
         const data = notDDISearchLLM(ddiInfo.drugA.name, ddiInfo.drugB?.name)
         setNotDDILLMResult(await data);
-        setShowNotDDILLMResult(true); // 设置为 true 以显示结果
+        setShowNotDDILLMResult(true);
+        setLlmAnalyzing(false)
     };
     const handleYesDDIButtonClick = async (description: string) => {
+        setLlmAnalyzing(true)
         // ddiInfo.ddi.description
         setYesDDILLMResult('');
         setShowYesDDILLMResult(false);
-
         const data = yesDDISearchLLM(ddiInfo.drugA.name, ddiInfo.drugB?.name, description)
         setYesDDILLMResult(await data);
-        setShowYesDDILLMResult(true); // 设置为 true 以显示结果
+        setShowYesDDILLMResult(true);
+        setLlmAnalyzing(false)
     };
 
     // 重置状态的 useEffect 钩子
@@ -48,6 +52,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ddiInfo}) => {
         setShowNotDDILLMResult(false);
         setYesDDILLMResult('');
         setShowYesDDILLMResult(false);
+        setLlmAnalyzing(false)
     }, [ddiInfo]);
 
     if (!ddiInfo) return null;
@@ -192,7 +197,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ddiInfo}) => {
                             {ddiInfo.ddi[ddiType].confidence &&
                                 <p><strong>Model Confidence:</strong> {ddiInfo.ddi[ddiType].confidence}</p>}
                             <button onClick={() => handleYesDDIButtonClick(ddiInfo.ddi[ddiType].description)}>点击查询LLM分析</button>
-                            {showYesDDILLMResult && <div>{yesDDILLMresult}</div>}
+                            {llmAnalyzing && <div>LLM正在分析中...</div>}
+                            {!llmAnalyzing && showYesDDILLMResult && <div>{yesDDILLMResult}</div>}
                         </div>
                     ))}
                 </div>
@@ -201,8 +207,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ddiInfo}) => {
                 <div>
                     <h3>暂无相关DDI信息！</h3>
                     <button onClick={handleNotDDIButtonClick}>点击查询模型预测结果及LLM分析</button>
+                    {llmAnalyzing && <div>LLM正在分析中...</div>}
                     {/* 只有当 showResult 为 true 时才显示查询结果 */}
-                    {showNotDDILLMResult && <div>{notDDILLMresult}</div>}
+                    {!llmAnalyzing && showNotDDILLMResult && <div>{notDDILLMResult}</div>}
                 </div>
             )}
         </div>
