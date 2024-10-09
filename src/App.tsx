@@ -16,7 +16,7 @@ const App: React.FC = () => {
     const [batchSearchResult, setBatchSearchResult] = useState<BatchSearchResult | null>(null);
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [pageSize] = useState<number>(10);
-    const [totalPages] = useState<number>(100);
+    const [totalPages] = useState<number>(279200); // 总共2792008条DDI（排除药物名开头不是字母的特殊药物）
     const [inputPage, setInputPage] = useState<string>('');
     const [username, setUsername] = useState<string>('');
 
