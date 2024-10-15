@@ -2,7 +2,7 @@
 
 import React, {useEffect, useState} from 'react';
 import {DDIResult, DrugInfo} from '../types';
-import {cjkSearch, notDDISearchLLM, yesDDISearchLLM} from "../service/dataService";
+import {notDDISearchLLM, yesDDISearchLLM} from "../service/dataService";
 
 
 interface SidebarProps {
@@ -20,7 +20,6 @@ export const Sidebar: React.FC<SidebarProps> = ({ddiInfo}) => {
     const [showNotDDILLMResult, setShowNotDDILLMResult] = useState(false);
     const [yesDDILLMResult, setYesDDILLMResult] = useState('');
     const [showYesDDILLMResult, setShowYesDDILLMResult] = useState(false);
-    // const [yesDDIDescription, setYesDDIDescription] = useState('');
     const [llmAnalyzing, setLlmAnalyzing] = useState(false);
 
     // 处理按钮点击事件
@@ -29,17 +28,17 @@ export const Sidebar: React.FC<SidebarProps> = ({ddiInfo}) => {
         setNotDDILLMResult('');
         setShowNotDDILLMResult(false);
 
-        const data = notDDISearchLLM(ddiInfo.drugA.name, ddiInfo.drugB?.name)
+        const data = notDDISearchLLM(ddiInfo.drugA, ddiInfo.drugB)
         setNotDDILLMResult(await data);
         setShowNotDDILLMResult(true);
         setLlmAnalyzing(false)
     };
-    const handleYesDDIButtonClick = async (description: string) => {
+    const handleYesDDIButtonClick = async (ddiDescription: string) => {
         setLlmAnalyzing(true)
         // ddiInfo.ddi.description
         setYesDDILLMResult('');
         setShowYesDDILLMResult(false);
-        const data = yesDDISearchLLM(ddiInfo.drugA.name, ddiInfo.drugB?.name, description)
+        const data = yesDDISearchLLM(ddiInfo.drugA, ddiInfo.drugB, ddiDescription)
         setYesDDILLMResult(await data);
         setShowYesDDILLMResult(true);
         setLlmAnalyzing(false)
