@@ -88,15 +88,15 @@ const App: React.FC = () => {
         const pageNumbers = [];
         const range = 2;
 
-        pageNumbers.push(1);
+        // pageNumbers.push(1);
         if (currentPage > 3) pageNumbers.push('...');
 
-        for (let i = Math.max(2, currentPage - range); i <= Math.min(totalPages - 1, currentPage + range); i++) {
+        for (let i = Math.max(1, currentPage - range); i <= Math.min(totalPages, currentPage + range); i++) {
             pageNumbers.push(i);
         }
 
         if (currentPage < totalPages - 2) pageNumbers.push('...');
-        pageNumbers.push(totalPages);
+        // pageNumbers.push(totalPages);
 
         return pageNumbers.map((number, index) => (
             <button
@@ -143,29 +143,26 @@ const App: React.FC = () => {
         }
     }, []);
 
-    if (!isLoggedIn) {
+    // 屏蔽登录功能
+    if (!isLoggedIn && isLoggedIn) {
         return <Login onLogin={handleLogin} error={loginError} />;
     }
 
     return (
 
         <div className="app-container">
-            {/*<div className="header">*/}
-            {/*    <p>用户{username}已登录 </p>*/}
-            {/*    <button onClick={handleLogout} className="logout-button">登出</button>*/}
-            {/*</div>*/}
             <header className="header">
                 <div className="search-bar-container">
                     <SearchBar onSearch={handleSearch}/>
                 </div>
-                <div className="user-info-container">
-                    <div className="user-info">
-                        <span className="login-status">用户</span>
-                        <span className="username">{username}</span>
-                        <span className="login-status">已登录</span>
-                    </div>
-                    <button onClick={handleLogout} className="logout-button">登出</button>
-                </div>
+                {/*<div className="user-info-container">*/}
+                {/*    <div className="user-info">*/}
+                {/*        <span className="login-status">用户</span>*/}
+                {/*        <span className="username">{username}</span>*/}
+                {/*        <span className="login-status">已登录</span>*/}
+                {/*    </div>*/}
+                {/*    <button onClick={handleLogout} className="logout-button">登出</button>*/}
+                {/*</div>*/}
             </header>
 
             {isLoading && <p className="loading">Loading...</p>}
@@ -179,7 +176,7 @@ const App: React.FC = () => {
 
             <div className="content-container">
                 <h2>已通过生物医学实验验证的DDI</h2>
-                <br></br>
+                {/*<br></br>*/}
                 {batchSearchResult && (
                     <ul className="result-list">
                         {batchSearchResult.items.map((item, idx) => (
