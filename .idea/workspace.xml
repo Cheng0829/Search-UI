@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1f17535b-6d45-4990-80ab-5f7eb9c0dcaa" name="Changes" comment="cjk">
-      <change afterPath="$PROJECT_DIR$/src/components/DDISidebar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/DrugSearchBar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/DrugSidebar.tsx" afterDir="false" />
+    <list default="true" id="1f17535b-6d45-4990-80ab-5f7eb9c0dcaa" name="Changes" comment="完成drug搜索和ddi搜索两个功能，未页面设计，未代码优化">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/1.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/1.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SearchBar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DDISearchBar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar1.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/dataService.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/dataService.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +95,7 @@
       <workItem from="1731402427461" duration="7749000" />
       <workItem from="1731418621427" duration="1314000" />
       <workItem from="1731419950565" duration="3593000" />
-      <workItem from="1731480265120" duration="20403000" />
+      <workItem from="1731480265120" duration="25155000" />
     </task>
     <task id="LOCAL-00001" summary="cjk">
       <option name="closed" value="true" />
@@ -162,7 +153,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731487092589</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="完成drug搜索和ddi搜索两个功能，未页面设计，未代码优化">
+      <option name="closed" value="true" />
+      <created>1731555930104</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1731555930104</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,6 +170,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="cjk" />
-    <option name="LAST_COMMIT_MESSAGE" value="cjk" />
+    <MESSAGE value="完成drug搜索和ddi搜索两个功能，未页面设计，未代码优化" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成drug搜索和ddi搜索两个功能，未页面设计，未代码优化" />
   </component>
 </project>

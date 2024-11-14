@@ -270,10 +270,25 @@ const App: React.FC = () => {
         return <Login onLogin={handleLogin} error={loginError}/>;
     }
 
+    const getPreviousDay = (): string => {
+        const today = new Date();
+        const previousDay = new Date(today);
+        previousDay.setDate(today.getDate() - 1);
+
+        // 格式化日期为 YYYY-MM-DD
+        const year = previousDay.getFullYear();
+        const month = String(previousDay.getMonth() + 1).padStart(2, '0');
+        const day = String(previousDay.getDate()).padStart(2, '0');
+
+        return `${year}-${month}-${day}`;
+    };
+
     return (
         <div className="app-container">
             {isChoosing && (
                 <>
+                <p>Author: <a href="https://github.com/Cheng0829" target="_blank" rel="noopener noreferrer">Junkai Cheng</a></p>
+                    <p>数据更新日期: {getPreviousDay()}</p>
                     <button className="page-nav" onClick={() => chooseDrugSearch()}>
                         drug
                     </button>
