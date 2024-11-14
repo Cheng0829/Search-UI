@@ -1,7 +1,6 @@
 // src/components/DDISidebar.tsx
 
-import React, {useEffect, useState} from 'react';
-import {DDIResult, DrugSearchResult} from '../types';
+import React from 'react';
 
 
 interface SidebarProps {
