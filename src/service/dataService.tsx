@@ -1,23 +1,23 @@
-import {BatchSearchResult, DrugInfo, SearchResult} from '../types';
+import {BatchDDISearchResult, DDISearchResult, BatchDrugSearchResult, DrugSearchResult} from '../types';
 
-export const cjkSearch = async (drugAName: string, drugBName: string): Promise<SearchResult> => {
+export const ddiSearch = async (drugAName: string, drugBName: string): Promise<DDISearchResult> => {
     // http://127.0.0.1:8080/search/${drugAName}&${drugBName}
     // https://5f4ddf95.r7.cpolar.top/search/${drugAName}&${drugBName}
-    return fetch(`http://127.0.0.1:8080/search/${drugAName}&${drugBName}`)
+    return fetch(`http://127.0.0.1:8080/search/ddi/${drugAName}&${drugBName}`)
         .then(response => response.json())
-        .then(data => data as SearchResult)
+        .then(data => data as DDISearchResult)
         .catch(error => {
             console.error('Error:', error);
             // throw error;
             throw new Error('数据库出现了一些故障，请稍后重试！');
         });
 }
-export const batchCjkSearch = async (index: number, limit: number): Promise<BatchSearchResult> => {
+export const batchDDISearch = async (index: number, limit: number): Promise<BatchDDISearchResult> => {
     // http://127.0.0.1:8080/pageSearch/index=${index+1}&limit=${limit}
     // https://5f4ddf95.r7.cpolar.top/pageSearch/index=${index+1}&limit=${limit}
-    return fetch(`http://127.0.0.1:8080/pageSearch/index=${index+1}&limit=${limit}`)
+    return fetch(`http://127.0.0.1:8080/pageSearch/ddi/index=${index+1}&limit=${limit}`)
         .then(response => response.json())
-        .then(data => data as BatchSearchResult)
+        .then(data => data as BatchDDISearchResult)
         .catch(error => {
             console.error('Error:', error);
             // throw error;
@@ -25,7 +25,32 @@ export const batchCjkSearch = async (index: number, limit: number): Promise<Batc
         });
 }
 
-export const yesDDISearchLLM = async (drugA: DrugInfo, drugB: DrugInfo | undefined, ddiDescription: string): Promise<string> => {
+export const drugSearch = async (drugName: string): Promise<DrugSearchResult> => {
+    // http://127.0.0.1:8080/search/${drugAName}&${drugBName}
+    // https://5f4ddf95.r7.cpolar.top/search/${drugAName}&${drugBName}
+    return fetch(`http://127.0.0.1:8080/search/drug/${drugName}`)
+        .then(response => response.json())
+        .then(data => data as DrugSearchResult)
+        .catch(error => {
+            console.error('Error:', error);
+            // throw error;
+            throw new Error('数据库出现了一些故障，请稍后重试！');
+        });
+}
+export const batchDrugSearch = async (index: number, limit: number): Promise<BatchDrugSearchResult> => {
+    // http://127.0.0.1:8080/pageSearch/index=${index+1}&limit=${limit}
+    // https://5f4ddf95.r7.cpolar.top/pageSearch/index=${index+1}&limit=${limit}
+    return fetch(`http://127.0.0.1:8080/pageSearch/drug/index=${index+1}&limit=${limit}`)
+        .then(response => response.json())
+        .then(data => data as BatchDrugSearchResult)
+        .catch(error => {
+            console.error('Error:', error);
+            // throw error;
+            throw new Error('数据库出现了一些故障，请稍后重试！');
+        });
+}
+
+export const yesDDISearchLLM = async (drugA: DrugSearchResult, drugB: DrugSearchResult | undefined, ddiDescription: string): Promise<string> => {
     const drugAName = drugA.name;
     const drugADescription = drugA.description;
     const drugBName = drugB?.name;
@@ -44,7 +69,7 @@ export const yesDDISearchLLM = async (drugA: DrugInfo, drugB: DrugInfo | undefin
     }
 }
 
-export const notDDISearchLLM = async (drugA: DrugInfo, drugB: DrugInfo | undefined ): Promise<string> => {
+export const notDDISearchLLM = async (drugA: DrugSearchResult, drugB: DrugSearchResult | undefined ): Promise<string> => {
     const drugAName = drugA.name;
     const drugADescription = drugA.description;
     const drugBName = drugB?.name;

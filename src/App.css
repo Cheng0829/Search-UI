@@ -352,7 +352,7 @@ body {
   background-color: #c82333;
 }
 
-/* 为 SearchBar 组件添加以下样式 */
+/* 为 DDISearchBar 组件添加以下样式 */
 .search-bar {
   display: flex;
   width: 100%;

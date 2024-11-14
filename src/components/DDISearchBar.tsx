@@ -1,4 +1,4 @@
-// src/components/SearchBar.tsx
+// src/components/DDISearchBar.tsx
 
 import React, { useState } from 'react';
 import '../App.css';
@@ -7,7 +7,7 @@ interface SearchBarProps {
     onSearch: (drugA: string, drugB: string) => void;
 }
 
-export const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
+export const DDISearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     const [drugA, setDrugA] = useState('');
     const [drugB, setDrugB] = useState('');
 
@@ -26,7 +26,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
             />
             <input
                 type="text"
-                placeholder="Enter Drug B (optional)"
+                placeholder="Enter Drug B"
                 value={drugB}
                 onChange={(e) => setDrugB(e.target.value)}
                 className="search-input"
