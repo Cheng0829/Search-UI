@@ -16,12 +16,6 @@ export interface DrugSearchResult {
     metabolism: string;
 }
 
-export interface DrugSearchResult2 {
-    name: string;
-    description: string;
-}
-
-
 export interface DDIResult {
     confidence: string;
     description: string;
