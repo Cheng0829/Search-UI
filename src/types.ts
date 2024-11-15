@@ -16,10 +16,6 @@ export interface DrugSearchResult {
     metabolism: string;
 }
 
-export interface DDIResult {
-    confidence: string;
-    description: string;
-}
 
 export interface BatchDrugSearchResult {
     items: Array<{
@@ -41,3 +37,10 @@ export interface BatchDDISearchResult {
         ddiDescription: string;
     }>;
 }
+
+export interface DDIResult {
+    confidence: string;
+    description: string;
+}
+
+

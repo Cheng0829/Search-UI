@@ -5,6 +5,7 @@ import { DDISearchBar } from './components/DDISearchBar';
 import { DDISidebar } from './components/DDISidebar';
 import { DDISearchResult, BatchDDISearchResult } from './types';
 import { ddiSearch, batchDDISearch } from './service/dataService';
+import {DrugSearchBar} from "./components/DrugSearchBar";
 
 interface DDISearchViewProps {
     onNavigateHome: () => void;
@@ -14,8 +15,8 @@ export const DDISearchView: React.FC<DDISearchViewProps> = ({ onNavigateHome }) 
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
     const [currentPage, setCurrentPage] = useState<number>(1);
-    const [pageSize] = useState<number>(10);
-    const [totalPages] = useState<number>(279200);
+    const [pageSize] = useState<number>(20);
+    const [totalPages] = useState<number>(Math.floor(2792008 / pageSize));
     const [inputPage, setInputPage] = useState<string>('');
     const [searchResult, setSearchResult] = useState<DDISearchResult | null>(null);
     const [batchSearchResult, setBatchSearchResult] = useState<BatchDDISearchResult | null>(null);
@@ -116,14 +117,22 @@ export const DDISearchView: React.FC<DDISearchViewProps> = ({ onNavigateHome }) 
 
     return (
         <>
-            <button className="page-nav" onClick={onNavigateHome}>
-                Home
-            </button>
-            <header className="header">
+            <div className="header-nav">
+                <button className="home-button" onClick={onNavigateHome}>
+                    Home
+                </button>
                 <div className="search-bar-container">
                     <DDISearchBar onSearch={handleSearch}/>
                 </div>
-            </header>
+            </div>
+            {/*<button className="page-nav" onClick={onNavigateHome}>*/}
+            {/*    Home*/}
+            {/*</button>*/}
+            {/*<header className="header">*/}
+            {/*    <div className="search-bar-container">*/}
+            {/*        <DDISearchBar onSearch={handleSearch}/>*/}
+            {/*    </div>*/}
+            {/*</header>*/}
             {isLoading && <p className="loading">Loading...</p>}
             {error && <p className="error">{error}</p>}
             {searchResult && (
@@ -144,7 +153,8 @@ export const DDISearchView: React.FC<DDISearchViewProps> = ({ onNavigateHome }) 
                             <ul className="result-list">
                                 {batchSearchResult.items.map((item, idx) => (
                                     <li key={idx} className="result-item">
-                                        <strong>Drug A:</strong> {item.drugAName}, <strong>Drug B:</strong> {item.drugBName}
+                                        <strong>Drug A:</strong> {item.drugAName}, <strong>Drug
+                                        B:</strong> {item.drugBName}
                                         <p><strong>DDI:</strong> {item.ddiDescription}</p>
                                     </li>
                                 ))}
@@ -155,14 +165,17 @@ export const DDISearchView: React.FC<DDISearchViewProps> = ({ onNavigateHome }) 
                         <button className="page-nav" onClick={() => handlePageChange(1)} disabled={currentPage === 1}>
                             首页
                         </button>
-                        <button className="page-nav" onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
+                        <button className="page-nav" onClick={() => handlePageChange(currentPage - 1)}
+                                disabled={currentPage === 1}>
                             上一页
                         </button>
                         {renderPageNumbers()}
-                        <button className="page-nav" onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>
+                        <button className="page-nav" onClick={() => handlePageChange(currentPage + 1)}
+                                disabled={currentPage === totalPages}>
                             下一页
                         </button>
-                        <button className="page-nav" onClick={() => handlePageChange(totalPages)} disabled={currentPage === totalPages}>
+                        <button className="page-nav" onClick={() => handlePageChange(totalPages)}
+                                disabled={currentPage === totalPages}>
                             末页
                         </button>
                         <form onSubmit={handleInputSubmit} className="page-jump">

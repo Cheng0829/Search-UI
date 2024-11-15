@@ -14,8 +14,8 @@ export const DrugSearchView: React.FC<DrugSearchViewProps> = ({ onNavigateHome }
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
     const [currentPage, setCurrentPage] = useState<number>(1);
-    const [pageSize] = useState<number>(10);
-    const [totalPages] = useState<number>(1658);
+    const [pageSize] = useState<number>(20);
+    const [totalPages] = useState<number>(Math.floor(9219 / pageSize));
     const [inputPage, setInputPage] = useState<string>('');
     const [searchResult, setSearchResult] = useState<DrugSearchResult | null>(null);
     const [batchSearchResult, setBatchSearchResult] = useState<BatchDrugSearchResult | null>(null);
@@ -108,14 +108,23 @@ export const DrugSearchView: React.FC<DrugSearchViewProps> = ({ onNavigateHome }
 
     return (
         <>
-            <button className="page-nav" onClick={onNavigateHome}>
-                Home
-            </button>
-            <header className="header">
+            <div className="header-nav">
+                <button className="home-button" onClick={onNavigateHome}>
+                    Home
+                </button>
                 <div className="search-bar-container">
                     <DrugSearchBar onSearch={handleSearch}/>
                 </div>
-            </header>
+            </div>
+
+            {/*<button className="page-nav" onClick={onNavigateHome}>*/}
+            {/*    Home*/}
+            {/*</button>*/}
+            {/*<header className="header">*/}
+            {/*    <div className="search-bar-container">*/}
+            {/*        <DrugSearchBar onSearch={handleSearch}/>*/}
+            {/*    </div>*/}
+            {/*</header>*/}
             {isLoading && <p className="loading">Loading...</p>}
             {error && <p className="error">{error}</p>}
             {searchResult && (
@@ -147,14 +156,17 @@ export const DrugSearchView: React.FC<DrugSearchViewProps> = ({ onNavigateHome }
                         <button className="page-nav" onClick={() => handlePageChange(1)} disabled={currentPage === 1}>
                             首页
                         </button>
-                        <button className="page-nav" onClick={() => handlePageChange(currentPage - 1)} disabled={currentPage === 1}>
+                        <button className="page-nav" onClick={() => handlePageChange(currentPage - 1)}
+                                disabled={currentPage === 1}>
                             上一页
                         </button>
                         {renderPageNumbers()}
-                        <button className="page-nav" onClick={() => handlePageChange(currentPage + 1)} disabled={currentPage === totalPages}>
+                        <button className="page-nav" onClick={() => handlePageChange(currentPage + 1)}
+                                disabled={currentPage === totalPages}>
                             下一页
                         </button>
-                        <button className="page-nav" onClick={() => handlePageChange(totalPages)} disabled={currentPage === totalPages}>
+                        <button className="page-nav" onClick={() => handlePageChange(totalPages)}
+                                disabled={currentPage === totalPages}>
                             末页
                         </button>
                         <form onSubmit={handleInputSubmit} className="page-jump">
