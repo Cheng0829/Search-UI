@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1f17535b-6d45-4990-80ab-5f7eb9c0dcaa" name="Changes" comment="代码优化完成，主代码分成住入口+drug搜索+ddi搜索三部分；未页面设计">
+    <list default="true" id="1f17535b-6d45-4990-80ab-5f7eb9c0dcaa" name="Changes" comment="页面设计了一部分">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DDISearchView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DDISearchView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DrugSearchView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DrugSearchView.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,37 +34,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "JavaScript Debug.index.html.executor": "Run",
-    "Jest.All Tests.executor": "Run",
-    "Jest.App.test.tsx.executor": "Run",
-    "Node.js.App.tsx.executor": "Run",
-    "Node.js.Unnamed.executor": "Run",
-    "Node.js.paths.js.executor": "Run",
-    "Node.js.search-ui.executor": "Run",
-    "Node.js.start.js.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "TypeScript.App.tsx.executor": "Run",
-    "git-widget-placeholder": "dev",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Java/code/search-ui/src/components",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs.jest.jest_package": "D:/Java/code/search-ui/node_modules/jest",
-    "nodejs_package_manager_path": "npm",
-    "npm.run1.executor": "Run",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "D:\\Java\\code\\search-ui\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.All Tests.executor&quot;: &quot;Run&quot;,
+    &quot;Jest.App.test.tsx.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.App.tsx.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.paths.js.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.search-ui.executor&quot;: &quot;Run&quot;,
+    &quot;Node.js.start.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TypeScript.App.tsx.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Java/code/search-ui/src/components&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;D:/Java/code/search-ui/node_modules/jest&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.run1.executor&quot;: &quot;Run&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\Java\\code\\search-ui\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Java\code\search-ui\src\components" />
@@ -106,7 +102,12 @@
       <workItem from="1731402427461" duration="7749000" />
       <workItem from="1731418621427" duration="1314000" />
       <workItem from="1731419950565" duration="3593000" />
-      <workItem from="1731480265120" duration="46171000" />
+      <workItem from="1731480265120" duration="46513000" />
+      <workItem from="1731812760847" duration="9788000" />
+      <workItem from="1732067330745" duration="1669000" />
+      <workItem from="1732073340359" duration="1876000" />
+      <workItem from="1732172104527" duration="1555000" />
+      <workItem from="1733197915651" duration="8000" />
     </task>
     <task id="LOCAL-00001" summary="cjk">
       <option name="closed" value="true" />
@@ -188,7 +189,31 @@
       <option name="project" value="LOCAL" />
       <updated>1731573704092</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="代码优化完成，主代码分成住入口+drug搜索+ddi搜索三部分；未页面设计">
+      <option name="closed" value="true" />
+      <created>1731660980797</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1731660980797</updated>
+    </task>
+    <task id="LOCAL-00012" summary="代码优化完成，主代码分成住入口+drug搜索+ddi搜索三部分；未页面设计">
+      <option name="closed" value="true" />
+      <created>1731660995215</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1731660995215</updated>
+    </task>
+    <task id="LOCAL-00013" summary="页面设计了一部分">
+      <option name="closed" value="true" />
+      <created>1731661044167</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1731661044167</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,6 +235,7 @@
     <MESSAGE value="cjk" />
     <MESSAGE value="完成drug搜索和ddi搜索两个功能，未页面设计，未代码优化" />
     <MESSAGE value="代码优化完成，主代码分成住入口+drug搜索+ddi搜索三部分；未页面设计" />
-    <option name="LAST_COMMIT_MESSAGE" value="代码优化完成，主代码分成住入口+drug搜索+ddi搜索三部分；未页面设计" />
+    <MESSAGE value="页面设计了一部分" />
+    <option name="LAST_COMMIT_MESSAGE" value="页面设计了一部分" />
   </component>
 </project>

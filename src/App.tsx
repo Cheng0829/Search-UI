@@ -122,15 +122,14 @@ const App: React.FC = () => {
                     <div className="header">
                         <div className="nav-buttons">
                             <button className="nav-btn" onClick={chooseDrugSearch}>
-                                Drug
+                                药物搜索引擎
                             </button>
                             <button className="nav-btn" onClick={chooseDDISearch}>
-                                DDI
+                                DDI搜索引擎
                             </button>
                         </div>
                         <div className="header-info">
-                            <p>Author: <a href="https://github.com/Cheng0829" target="_blank" rel="noopener noreferrer">Junkai
-                                Cheng</a></p>
+                            <p>Author: <a href="https://github.com/Cheng0829" target="_blank" rel="noopener noreferrer">Junkai Cheng</a></p>
                             <p>数据更新日期: {getPreviousDay()}</p>
                         </div>
                     </div>
@@ -140,8 +139,10 @@ const App: React.FC = () => {
                         <div className="papers-grid">
                             {papers.map((paper, index) => (
                                 <div key={index} className="paper-card">
-                                    <h3>{paper.title}</h3>
+                                    {/*<h3>{paper.title}</h3>*/}
+                                    <h3><a href="https://ieeexplore.ieee.org/document/10530338" target="_blank" rel="noopener noreferrer">{paper.title}</a></h3>
                                     <p>{paper.abstract}</p>
+                                    {/*https://ieeexplore.ieee.org/document/10530338*/}
                                 </div>
                             ))}
                         </div>
