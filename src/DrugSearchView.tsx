@@ -129,9 +129,11 @@ export const DrugSearchView: React.FC<DrugSearchViewProps> = ({ onNavigateHome }
             {error && <p className="error">{error}</p>}
             {searchResult && (
                 <>
-                    <button className="page-nav" onClick={() => setSearchResult(null)}>
-                        清除搜索结果
-                    </button>
+                    <div className="page-nav-container">
+                        <button className="page-nav" onClick={() => setSearchResult(null)}>
+                            清除搜索结果
+                        </button>
+                    </div>
                     <div className="sidebar-container">
                         <DrugSidebar drugInfo={searchResult}/>
                     </div>

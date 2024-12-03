@@ -137,9 +137,11 @@ export const DDISearchView: React.FC<DDISearchViewProps> = ({ onNavigateHome }) 
             {error && <p className="error">{error}</p>}
             {searchResult && (
                 <>
-                    <button className="page-nav" onClick={() => setSearchResult(null)}>
-                        清除搜索结果
-                    </button>
+                    <div className="page-nav-container">
+                        <button className="page-nav" onClick={() => setSearchResult(null)}>
+                            清除搜索结果
+                        </button>
+                    </div>
                     <div className="sidebar-container">
                         <DDISidebar ddiInfo={searchResult}/>
                     </div>

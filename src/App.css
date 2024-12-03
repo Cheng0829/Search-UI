@@ -610,3 +610,113 @@ body {
     width: 100%;
   }
 }
+
+/* 修改搜索结果页面的布局样式 */
+.header-nav {
+  width: 80%; /* 增加宽度，使布局更协调 */
+  margin: 0 auto;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* 修改目录图标和搜索栏的样式 */
+.home-button {
+  padding: 10px 25px; /* 增加内边距使按钮更大 */
+  font-size: 16px; /* 增大字体 */
+}
+
+/* 修改搜索输入框样式 */
+.search-input {
+  flex: 1;
+  padding: 10px 15px; /* 增加内边距 */
+  font-size: 16px; /* 增大字体 */
+}
+
+/* 修改搜索按钮样式 */
+.search-button {
+  padding: 10px 25px; /* 增加内边距使按钮更大 */
+  font-size: 16px; /* 增大字体 */
+}
+
+/* 修改分页控件样式 */
+.pagination {
+  width: 80%; /* 增加宽度与上方内容对齐 */
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px; /* 增加间距 */
+}
+
+.page-jump input {
+  width: 80px; /* 增加输入框宽度 */
+  padding: 8px;
+  font-size: 14px;
+}
+
+.page-jump button {
+  padding: 8px 15px;
+  font-size: 14px;
+}
+
+/* 修改内容容器样式 */
+.content-container {
+  width: 80%; /* 增加宽度与其他元素对齐 */
+  margin: 20px auto;
+}
+
+.sidebar-container {
+  width: 80%; /* 增加宽度与其他元素对齐 */
+  margin: 20px auto;
+}
+
+/* 响应式设计调整 */
+@media (max-width: 768px) {
+  .header-nav,
+  .content-container,
+  .sidebar-container,
+  .pagination {
+    width: 95%; /* 在移动设备上增加宽度 */
+  }
+  
+  .page-jump input {
+    width: 100px; /* 在移动设备上增加输入框宽度 */
+  }
+}
+
+/* 修改清除搜索结果按钮的容器样式 */
+.page-nav-container {
+  width: 80%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* 修改清除搜索结果按钮样式 */
+.page-nav {
+  padding: 10px 25px;
+  background: linear-gradient(145deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.page-nav:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 响应式设计中添加按钮容器的样式 */
+@media (max-width: 768px) {
+  .page-nav-container {
+    width: 95%;
+  }
+}

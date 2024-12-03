@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f17535b-6d45-4990-80ab-5f7eb9c0dcaa" name="Changes" comment="页面设计了一部分">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/static/css/main.295f8fec.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/static/css/main.295f8fec.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/static/js/main.e7668dbe.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/static/js/main.e7668dbe.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/static/js/main.e7668dbe.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/static/media/123.c50b1368adaeb55329a9.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DDISearchView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DDISearchView.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DrugSearchView.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/DrugSearchView.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,6 +115,7 @@
       <workItem from="1732073340359" duration="1876000" />
       <workItem from="1732172104527" duration="1555000" />
       <workItem from="1733197915651" duration="8000" />
+      <workItem from="1733197949065" duration="1181000" />
     </task>
     <task id="LOCAL-00001" summary="cjk">
       <option name="closed" value="true" />
@@ -213,7 +221,23 @@
       <option name="project" value="LOCAL" />
       <updated>1731661044167</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="页面设计了一部分">
+      <option name="closed" value="true" />
+      <created>1733197962321</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1733197962321</updated>
+    </task>
+    <task id="LOCAL-00015" summary="cjk">
+      <option name="closed" value="true" />
+      <created>1733198036290</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1733198036290</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
