@@ -142,7 +142,6 @@ const App: React.FC = () => {
                                     {/*<h3>{paper.title}</h3>*/}
                                     <h3><a href="https://ieeexplore.ieee.org/document/10530338" target="_blank" rel="noopener noreferrer">{paper.title}</a></h3>
                                     <p>{paper.abstract}</p>
-                                    {/*https://ieeexplore.ieee.org/document/10530338*/}
                                 </div>
                             ))}
                         </div>
