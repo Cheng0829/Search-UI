@@ -32,6 +32,7 @@
 .page-nav:disabled {
   background-color: #cccccc;
   cursor: not-allowed;
+  opacity: 0.7;
 }
 
 .page-number {
@@ -386,8 +387,8 @@ body {
 
 .papers-grid {
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 30px;
   padding: 0 20px;
 }
@@ -435,8 +436,9 @@ body {
 }
 
 .paper-card {
+  width: 100%;
   background: white;
-  padding: 20px;
+  padding: 30px;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
@@ -447,13 +449,22 @@ body {
 }
 
 .paper-card h3 {
-  color: #2196f3;
-  margin-bottom: 10px;
+  font-size: 1.4em;
+  margin-bottom: 15px;
 }
 
 .paper-card p {
-  color: #666;
-  line-height: 1.6;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.paper-card p a {
+  color: #2196f3;
+  text-decoration: none;
+}
+
+.paper-card p a:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {
@@ -719,4 +730,63 @@ body {
   .page-nav-container {
     width: 95%;
   }
+}
+
+.page-nav-container {
+  width: 80%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+}
+
+/* 添加清除按钮样式 */
+.clear-button {
+    padding: 10px 25px;
+    background: linear-gradient(145deg, #dc3545, #c82333);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;  /* 防止文字换行 */
+}
+
+.clear-button:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.clear-button:disabled {
+    background: linear-gradient(145deg, #cccccc, #bbbbbb);
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none;
+    box-shadow: none;
+}
+
+/* 修改 header-nav 的样式以适应新按钮 */
+.header-nav {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: nowrap;  /* 防止换行 */
+}
+
+/* 响应式设计调整 */
+@media (max-width: 768px) {
+    .header-nav {
+        width: 95%;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .clear-button {
+        width: 100%;  /* 在移动设备上占满宽度 */
+    }
 }

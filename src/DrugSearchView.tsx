@@ -115,35 +115,27 @@ export const DrugSearchView: React.FC<DrugSearchViewProps> = ({ onNavigateHome }
                 <div className="search-bar-container">
                     <DrugSearchBar onSearch={handleSearch}/>
                 </div>
+                <button 
+                    className="clear-button" 
+                    onClick={() => setSearchResult(null)}
+                    disabled={!searchResult}
+                >
+                    清除搜索结果
+                </button>
             </div>
-
-            {/*<button className="page-nav" onClick={onNavigateHome}>*/}
-            {/*    Home*/}
-            {/*</button>*/}
-            {/*<header className="header">*/}
-            {/*    <div className="search-bar-container">*/}
-            {/*        <DrugSearchBar onSearch={handleSearch}/>*/}
-            {/*    </div>*/}
-            {/*</header>*/}
+            
             {isLoading && <p className="loading">Loading...</p>}
             {error && <p className="error">{error}</p>}
-            {searchResult && (
+            
+            {searchResult ? (
+                <div className="sidebar-container">
+                    <DrugSidebar drugInfo={searchResult}/>
+                </div>
+            ) : (
                 <>
-                    <div className="page-nav-container">
-                        <button className="page-nav" onClick={() => setSearchResult(null)}>
-                            清除搜索结果
-                        </button>
-                    </div>
-                    <div className="sidebar-container">
-                        <DrugSidebar drugInfo={searchResult}/>
-                    </div>
-                </>
-            )}
-            {!searchResult && (
-                <>
-                    <div className="content-container">
-                        <h2>Drug List</h2>
-                        {batchSearchResult && (
+                    {batchSearchResult && (
+                        <div className="content-container">
+                            <h2>Drug List</h2>
                             <ul className="result-list">
                                 {batchSearchResult.items.map((item, idx) => (
                                     <li key={idx} className="result-item">
@@ -152,8 +144,8 @@ export const DrugSearchView: React.FC<DrugSearchViewProps> = ({ onNavigateHome }
                                     </li>
                                 ))}
                             </ul>
-                        )}
-                    </div>
+                        </div>
+                    )}
                     <div className="pagination">
                         <button className="page-nav" onClick={() => handlePageChange(1)} disabled={currentPage === 1}>
                             首页
