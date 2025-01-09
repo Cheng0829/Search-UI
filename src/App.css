@@ -1,753 +1,606 @@
 /* App.css */
-/*body {*/
-/*  font-family: Arial, sans-serif;*/
-/*  line-height: 1.6;*/
-/*  color: #333;*/
-/*  background-color: #f4f4f4;*/
-/*  margin: 0;*/
-/*  padding: 0;*/
-/*}*/
 
 .app-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 .page-nav {
-  margin: 0 10px;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .page-nav:hover:not(:disabled) {
-  background-color: #0056b3;
-  transform: translateY(-2px);
+    background-color: #0056b3;
+    transform: translateY(-2px);
 }
 
 .page-nav:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
-  opacity: 0.7;
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
 }
-/* App.css */
-/*body {*/
-/*  font-family: Arial, sans-serif;*/
-/*  line-height: 1.6;*/
-/*  color: #333;*/
-/*  background-color: #f4f4f4;*/
-/*  margin: 0;*/
-/*  padding: 0;*/
-/*}*/
 
 .app-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 .page-nav {
-  margin: 0 5px;
-  padding: 8px 12px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+    margin: 0 5px;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .page-nav:hover:not(:disabled) {
-  background-color: #0056b3;
+    background-color: #0056b3;
 }
 
 .page-nav:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
-  opacity: 0.7;
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.7;
 }
 
 .page-number {
-  margin: 0 5px;
-  padding: 8px 12px;
-  background-color: #f8f9fa;
-  border: 1px solid #dee2e6;
-  border-radius: 4px;
-  cursor: pointer;
+    margin: 0 5px;
+    padding: 8px 12px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .page-number.current-page {
-  background-color: #007bff;
-  color: white;
+    background-color: #007bff;
+    color: white;
 }
 
 .page-jump {
-  display: flex;
-  align-items: center;
-  margin-left: 10px;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
 }
 
 .page-jump input {
-  width: 60px;
-  padding: 6px;
-  margin-right: 5px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+    width: 60px;
+    padding: 6px;
+    margin-right: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 
 .page-jump button {
-  padding: 6px 12px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+    padding: 6px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .result-list {
-  list-style-type: none;
-  padding: 0;
+    list-style-type: none;
+    padding: 0;
 }
 
 .result-item {
-  margin-bottom: 15px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
 }
 
 .result-item:last-child {
-  border-bottom: none;
+    border-bottom: none;
 }
 
 .loading, .error {
-  text-align: center;
-  padding: 20px;
-  font-weight: bold;
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
 }
 
-
-/*.header {*/
-/*  display: flex;*/
-/*  justify-content: flex-end;*/
-/*  padding: 6px 10px;*/
-/*  background-color: #f8f9fa;*/
-/*}*/
-
-/*.logout-button {*/
-/*  padding: 8px 16px;*/
-/*  background-color: #dc3545;*/
-/*  color: white;*/
-/*  border: none;*/
-/*  border-radius: 4px;*/
-/*  cursor: pointer;*/
-/*}*/
-
-/*.logout-button:hover {*/
-/*  background-color: #c82333;*/
-/*}*/
-
 .login-container {
-  max-width: 300px;
-  margin: 100px auto;
-  padding: 20px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-width: 300px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .login-container h2 {
-  text-align: center;
-  margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .login-container form div {
-  margin-bottom: 15px;
+    margin-bottom: 15px;
 }
 
 .login-container label {
-  display: block;
-  margin-bottom: 5px;
+    display: block;
+    margin-bottom: 5px;
 }
 
 .login-container input {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
 }
 
 .login-container button {
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .login-container button:hover {
-  background-color: #0056b3;
+    background-color: #0056b3;
 }
 
 .error {
-  color: #dc3545;
-  margin-bottom: 10px;
+    color: #dc3545;
+    margin-bottom: 10px;
 }
 
-/*.search-bar {*/
-/*  display: flex;*/
-/*  gap: 10px;*/
-/*  padding: 20px;*/
-/*  background-color: #f0f0f0;*/
-/*  border-radius: 8px;*/
-/*  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
-/*}*/
-
-
-
-
-
-
-
-
-
-
-
-/*.header {*/
-/*  display: flex;*/
-/*  justify-content: flex-end;*/
-/*  align-items: center;*/
-/*  padding: 12px 20px;*/
-/*  background-color: #ffffff;*/
-/*  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
-/*}*/
-
-/*.user-info {*/
-/*  display: flex;*/
-/*  align-items: center;*/
-/*  margin-right: 15px;*/
-/*}*/
-
-/*.username {*/
-/*  font-weight: bold;*/
-/*  color: #333;*/
-/*  margin-right: 8px;*/
-/*}*/
-
-/*.login-status {*/
-/*  font-size: 0.9em;*/
-/*  color: #28a745;*/
-/*}*/
-
-/*.logout-button {*/
-/*  padding: 8px 16px;*/
-/*  background-color: #dc3545;*/
-/*  color: white;*/
-/*  border: none;*/
-/*  border-radius: 4px;*/
-/*  font-size: 14px;*/
-/*  cursor: pointer;*/
-/*  transition: background-color 0.3s ease;*/
-/*}*/
-
-/*.logout-button:hover {*/
-/*  background-color: #c82333;*/
-/*}*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #ffffff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 
 .user-info-container {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .user-info {
-  display: flex;
-  align-items: center;
-  margin-right: 15px;
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
 }
 
 .username {
-  font-weight: bold;
-  color: #28a745;
+    font-weight: bold;
+    color: #28a745;
 }
 
 .login-status {
-  font-weight: bold;
-  color: #333;
-  /*color: #28a745;*/
+    font-weight: bold;
+    color: #333;
+    /*color: #28a745;*/
 }
 
 .logout-button {
-  padding: 8px 16px;
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+    padding: 8px 16px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .logout-button:hover {
-  background-color: #c82333;
+    background-color: #c82333;
 }
 
 /* 为 DDISearchBar 组件添加以下样式 */
 .search-bar {
-  display: flex;
-  width: 100%;
+    display: flex;
+    width: 100%;
 }
 
 
-
 @media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    align-items: stretch;
-  }
+    .header {
+        flex-direction: column;
+        align-items: stretch;
+    }
 
 
-  .user-info-container {
-    justify-content: space-between;
-  }
+    .user-info-container {
+        justify-content: space-between;
+    }
 }
 
 /* 重置基础样式 */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
 }
 
 .app-container {
-  width: 100%;
-  min-height: 100vh;
-  margin: 0;
-  padding: 0;
-  background: url('C:/123.jpg') center/cover no-repeat;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background: url('C:/123.jpg') center/cover no-repeat;
 }
 
 .home-content {
-  width: 60%; /* 设置宽度为60% */
-  min-height: 100vh;
-  margin: 0 auto; /* 使用 auto 边距实现水平居中 */
-  background: rgba(255, 255, 255, 0.9);
-  padding: 20px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 60%; /* 设置宽度为60% */
+    min-height: 100vh;
+    margin: 0 auto; /* 使用 auto 边距实现水平居中 */
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 /* 移除之前的限制性样式 */
 .app-container {
-  max-width: none; /* 移除 1200px 的限制 */
+    max-width: none; /* 移除 1200px 的限制 */
 }
 
 .papers-container {
-  width: 100%;
-  padding: 20px;
+    width: 100%;
+    padding: 20px;
 }
 
 .papers-container h2 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 30px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
 }
 
 .papers-grid {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  padding: 0 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 20px;
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 40px;
-  padding-bottom: 20px;
-  border-bottom: 2px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #eee;
 }
 
 .nav-buttons {
-  display: flex;
-  gap: 20px;
+    display: flex;
+    gap: 20px;
 }
 
 .nav-btn {
-  padding: 10px 30px;
-  font-size: 18px;
-  border: none;
-  border-radius: 5px;
-  background: #2196f3;
-  color: white;
-  cursor: pointer;
-  transition: background 0.3s;
+    padding: 10px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background: #2196f3;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
 .nav-btn:hover {
-  background: #1976d2;
+    background: #1976d2;
 }
 
 .header-info {
-  text-align: right;
+    text-align: right;
 }
 
 .header-info a {
-  color: #2196f3;
-  text-decoration: none;
+    color: #2196f3;
+    text-decoration: none;
 }
 
 .header-info a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 .paper-card {
-  width: 100%;
-  background: white;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
+    width: 100%;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
 }
 
 .paper-card:hover {
-  transform: translateY(-5px);
+    transform: translateY(-5px);
 }
 
 .paper-card h3 {
-  font-size: 1.4em;
-  margin-bottom: 15px;
+    font-size: 1.4em;
+    margin-bottom: 15px;
 }
 
 .paper-card p {
-  line-height: 1.8;
-  text-align: justify;
+    line-height: 1.8;
+    text-align: justify;
 }
 
 .paper-card p a {
-  color: #2196f3;
-  text-decoration: none;
+    color: #2196f3;
+    text-decoration: none;
 }
 
 .paper-card p a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 @media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    gap: 20px;
-  }
+    .header {
+        flex-direction: column;
+        gap: 20px;
+    }
 
-  .nav-buttons {
-    width: 100%;
-    justify-content: center;
-  }
+    .nav-buttons {
+        width: 100%;
+        justify-content: center;
+    }
 
-  .header-info {
-    text-align: center;
-  }
+    .header-info {
+        text-align: center;
+    }
 }
 
 .content-container {
-  width: 60%;
-  margin: 0 auto; /* 居中显示 */
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  margin-top: 20px;
+    width: 60%;
+  /* 居中显示 */
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px auto 0;
 }
 
 .sidebar-container {
-  width: 60%;
-  margin: 20px auto; /* 居中显示，保持上下间距 */
-  padding: 15px;
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    width: 60%;
+    margin: 20px auto; /* 居中显示，保持上下间距 */
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 /* 为了确保分页控件也居中对齐 */
 .pagination {
-  width: 60%;
-  margin: 20px auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+    width: 60%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* 顶部导航栏样式 */
 .header-nav {
-  width: 60%;
-  margin: 0 auto;
-  padding: 20px 0;
-  display: flex;
-  align-items: center;
-  gap: 20px;
+    width: 60%;
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 /* Home 按钮样式 */
 .home-button {
-  padding: 8px 20px;
-  background: linear-gradient(145deg, #007bff, #0056b3);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 8px 20px;
+    background: linear-gradient(145deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .home-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* 搜索栏容器样式 */
 .search-bar-container {
-  flex: 1;
-  display: flex;
-  gap: 10px;
+    flex: 1;
+    display: flex;
+    gap: 10px;
 }
 
 /* 搜索输入框样式 */
 .search-input {
-  flex: 1;
-  padding: 8px 15px;
-  border: 2px solid #e0e0e0;
-  border-radius: 6px;
-  font-size: 14px;
-  transition: border-color 0.3s, box-shadow 0.3s;
+    flex: 1;
+    padding: 8px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .search-input:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
 }
 
 /* 搜索按钮样式 */
 .search-button {
-  padding: 8px 20px;
-  background: linear-gradient(145deg, #28a745, #218838);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 8px 20px;
+    background: linear-gradient(145deg, #28a745, #218838);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .search-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-  .header-nav {
-    width: 90%;
-    flex-direction: column;
-    gap: 10px;
-  }
+    .header-nav {
+        width: 90%;
+        flex-direction: column;
+        gap: 10px;
+    }
 
-  .search-bar-container {
-    width: 100%;
-  }
+    .search-bar-container {
+        width: 100%;
+    }
 }
 
 /* 修改搜索结果页面的布局样式 */
 .header-nav {
-  width: 80%; /* 增加宽度，使布局更协调 */
-  margin: 0 auto;
-  padding: 20px 0;
-  display: flex;
-  align-items: center;
-  gap: 20px;
+    width: 80%; /* 增加宽度，使布局更协调 */
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 /* 修改目录图标和搜索栏的样式 */
 .home-button {
-  padding: 10px 25px; /* 增加内边距使按钮更大 */
-  font-size: 16px; /* 增大字体 */
+    padding: 10px 25px; /* 增加内边距使按钮更大 */
+    font-size: 16px; /* 增大字体 */
 }
 
 /* 修改搜索输入框样式 */
 .search-input {
-  flex: 1;
-  padding: 10px 15px; /* 增加内边距 */
-  font-size: 16px; /* 增大字体 */
+    flex: 1;
+    padding: 10px 15px; /* 增加内边距 */
+    font-size: 16px; /* 增大字体 */
 }
 
 /* 修改搜索按钮样式 */
 .search-button {
-  padding: 10px 25px; /* 增加内边距使按钮更大 */
-  font-size: 16px; /* 增大字体 */
+    padding: 10px 25px; /* 增加内边距使按钮更大 */
+    font-size: 16px; /* 增大字体 */
 }
 
 /* 修改分页控件样式 */
 .pagination {
-  width: 80%; /* 增加宽度与上方内容对齐 */
-  margin: 20px auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px; /* 增加间距 */
+    width: 80%; /* 增加宽度与上方内容对齐 */
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px; /* 增加间距 */
 }
 
 .page-jump input {
-  width: 80px; /* 增加输入框宽度 */
-  padding: 8px;
-  font-size: 14px;
+    width: 80px; /* 增加输入框宽度 */
+    padding: 8px;
+    font-size: 14px;
 }
 
 .page-jump button {
-  padding: 8px 15px;
-  font-size: 14px;
+    padding: 8px 15px;
+    font-size: 14px;
 }
 
 /* 修改内容容器样式 */
 .content-container {
-  width: 80%; /* 增加宽度与其他元素对齐 */
-  margin: 20px auto;
+    width: 80%; /* 增加宽度与其他元素对齐 */
+    margin: 20px auto;
 }
 
 .sidebar-container {
-  width: 80%; /* 增加宽度与其他元素对齐 */
-  margin: 20px auto;
+    width: 80%; /* 增加宽度与其他元素对齐 */
+    margin: 20px auto;
 }
 
 /* 响应式设计调整 */
 @media (max-width: 768px) {
-  .header-nav,
-  .content-container,
-  .sidebar-container,
-  .pagination {
-    width: 95%; /* 在移动设备上增加宽度 */
-  }
-  
-  .page-jump input {
-    width: 100px; /* 在移动设备上增加输入框宽度 */
-  }
+    .header-nav,
+    .content-container,
+    .sidebar-container,
+    .pagination {
+        width: 95%; /* 在移动设备上增加宽度 */
+    }
+
+    .page-jump input {
+        width: 100px; /* 在移动设备上增加输入框宽度 */
+    }
 }
 
 /* 修改清除搜索结果按钮的容器样式 */
 .page-nav-container {
-  width: 80%;
-  margin: 20px auto;
-  display: flex;
-  justify-content: center;
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
 }
 
 /* 修改清除搜索结果按钮样式 */
 .page-nav {
-  padding: 10px 25px;
-  background: linear-gradient(145deg, #007bff, #0056b3);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 25px;
+    background: linear-gradient(145deg, #007bff, #0056b3);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .page-nav:hover:not(:disabled) {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* 响应式设计中添加按钮容器的样式 */
 @media (max-width: 768px) {
-  .page-nav-container {
-    width: 95%;
-  }
+    .page-nav-container {
+        width: 95%;
+    }
 }
 
 .page-nav-container {
-  width: 80%;
-  margin: 20px auto;
-  display: flex;
-  justify-content: center;
+    width: 80%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
 }
 
 /* 添加清除按钮样式 */
@@ -762,7 +615,7 @@ body {
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    white-space: nowrap;  /* 防止文字换行 */
+    white-space: nowrap; /* 防止文字换行 */
 }
 
 .clear-button:hover:not(:disabled) {
@@ -786,7 +639,7 @@ body {
     display: flex;
     align-items: center;
     gap: 20px;
-    flex-wrap: nowrap;  /* 防止换行 */
+    flex-wrap: nowrap; /* 防止换行 */
 }
 
 /* 响应式设计调整 */
@@ -796,8 +649,8 @@ body {
         flex-direction: column;
         gap: 10px;
     }
-    
+
     .clear-button {
-        width: 100%;  /* 在移动设备上占满宽度 */
+        width: 100%; /* 在移动设备上占满宽度 */
     }
 }

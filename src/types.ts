@@ -16,7 +16,6 @@ export interface DrugSearchResult {
     metabolism: string;
 }
 
-
 export interface BatchDrugSearchResult {
     items: Array<{
         name: string;

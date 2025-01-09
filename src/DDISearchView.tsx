@@ -5,7 +5,6 @@ import { DDISearchBar } from './components/DDISearchBar';
 import { DDISidebar } from './components/DDISidebar';
 import { DDISearchResult, BatchDDISearchResult } from './types';
 import { ddiSearch, batchDDISearch } from './service/dataService';
-import {DrugSearchBar} from "./components/DrugSearchBar";
 
 interface DDISearchViewProps {
     onNavigateHome: () => void;
